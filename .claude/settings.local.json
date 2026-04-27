@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(npx vite *)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -sS http://localhost:5173/src/main.jsx)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"vite --port 5173\")",
+      "Bash(npm run *)",
+      "Bash(curl -sS -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(curl -sS -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:5174/)",
+      "Bash(lsof -i :5173 -sTCP:LISTEN -P)",
+      "Bash(curl -s http://localhost:5174)"
+    ]
+  }
+}

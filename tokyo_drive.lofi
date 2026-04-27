@@ -1,0 +1,31 @@
+// tokyo_drive.lofi
+// 8-bar Japanese city-pop flavored lofi in F major
+// IVmaj7 - V7 - iii - vi  |  ii - V - I - vi (turnaround)
+
+@tempo 102
+//@swing 0.62
+@fx vinyl 0.2
+@fx reverb 0.45
+//@fx lowpass 0.2
+
+//      bar1             bar2             bar3             bar4             bar5             bar6             bar7             bar8
+kick:   x . . . . . . . . . x . . . . .
+        x . . . . . . x . . x . . . . .
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . x
+        . . . . x . . . . . . . x . x x
+
+hat:    x . x x x . x . x . x x x . x .
+
+perc:   x x x x 
+
+//bass:   Bb2 . . . F2 . . . D3 . . . F2 . . .
+      
+lead:   A4 . . . C5 . D5 . F5 . . . D5 . . .
+        E5 . . . D5 . . . C5 . . . A4 . G4 .
+        F4 . . . A4 . C5 . F5 . . . A5 . . .
+        G5 . F5 . E5 . D5 . C5 . . . A4 . . .
+
+chords: Bbmaj7 C7 Am7 Dm7 Gm7 C7 Fmaj7 Dm7

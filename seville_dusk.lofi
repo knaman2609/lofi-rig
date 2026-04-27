@@ -1,0 +1,39 @@
+@tempo 88
+@swing 0.58
+@fx vinyl 0.28
+@fx reverb 0.38
+@fx lowpass 0.55
+//@instrument lead flute 0.9
+@instrument chord pad 0.6
+
+// Spanish/Flamenco lofi: A harmonic minor (A B C D E F G#)
+// Andalusian cadence: Am - G - F - E (the defining Spanish sound)
+// G# (raised 7th) creates the characteristic tension
+
+kick:   x . . . x . . . x . . . x . x .
+snare:  . . . . x . . . . . . . x . . .
+hat:    x . x . x x x . x . x . x . x .
+clap:   . . x . . . . . . . x . . . . .
+perc:   . . . . . . x . . . . . . x . .
+
+bass:   A2 . . . E2 . . . A2 . . . G#2 . A2 .
+        D2 . . . A2 . . . F2 . . . E2 . . .
+        A2 . E2 . A2 . . . D2 . F2 . E2 . A2 .
+        G#2 . A2 . E2 . D2 . A2 . . . E2 . . .
+
+lead:   E4 D4 C4 B3 A3 G#3 A3 B3
+        C4 B3 A3 G#3 A3 E3 A3 .
+        A3 B3 C4 D4 E4 F4 E4 D4
+        C4 B3 A3 G#3 E3 G#3 A3 .
+
+        E4 F4 E4 D4 C4 D4 C4 B3
+        A3 G#3 A3 B3 C4 B3 A3 G#3
+        A3 C4 E4 D4 C4 B3 A3 G#3
+        A3 . G#3 A3 B3 A3 G#3 .
+
+chords: Am G F E
+        Am G F E
+
+// Bass: roots of Andalusian cadence, G# pedal creates flamenco tension
+// Lead: descending Andalusian runs, F-E half-step and G#-A resolution
+// Chords: Am-G-F-E is the defining Andalusian cadence

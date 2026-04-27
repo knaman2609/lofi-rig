@@ -1,0 +1,39 @@
+// midnight_drift.lofi
+// 16-bar lofi piece in A minor — Part A (introspective, modal i-iv-v)
+// then Part B (warmer, ii-V-I motion through the relative major).
+// Drums sit on an 8-bar loop; bass and lead span all 16 bars
+// so each chord change brings new melodic material.
+
+@tempo 74
+@swing 0.62
+@fx vinyl 0.35
+@fx reverb 0.4
+@fx lowpass 0.45
+
+
+// ─── DRUMS ── 8 bars, loops twice across the 16-bar form ───────────────────
+//        bar1             bar2             bar3             bar4             bar5             bar6             bar7             bar8
+kick:  x . . . . . . . . . x . . . . .  x . . . . . . . x . . . . . . .  x . . . . . . . . . x . . . . .  x . . . . . . x . . . x . . . .  x . . . x . . . . . x . . . . .  x . . . . . . . . . x . . . x .  x . . . . . . . x . . . . . . .  x . . . . . . . . . x . . . . .
+snare: . . . . x . . . . . . . x . . .  . . . . x . . x . . . . x . . .  . . . . x . . . . . . . x . . .  . . . . x . . . . . . . x . . x  . . . . x . . . . . . . x . . .  . . . . x . . . . . . . x . . .  . . . . x . . x . . . . x . . .  . . . . x . . . . . . . x . x .
+hat:   x . x . x . x . x . x . x . x .  x . x . x . x . x . x . x . x .  x . x . x . x . x . x . x . x x  x . x . x . x . x . x . x . x .  x x x x x x x x x x x x x x x x  x . x . x . x . x . x . x . x .  x . x . x . x . x . x . x x x x  x . x . x . x . x . . . x . x .
+perc:  . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . x .  . . x . . . . . . . . . . . . .  . . . . . . . . . . . . . . . .  . . . . . . . . . . x . . . . .  . . . . . . . . . . . . . . . .  . . x . . . . . . . . . . . x .  . . . . . . . . . . . . . . . .
+
+
+// ─── BASS ── 16 bars, one bar per chord ────────────────────────────────────
+// Part A: roots and 5ths, sparse and patient.
+// Part B: pickup notes on beat 3, more forward motion into each chord.
+//        bar1             bar2             bar3             bar4             bar5             bar6             bar7             bar8             bar9             bar10            bar11            bar12            bar13            bar14            bar15            bar16
+bass:  A2 . . . . . . . A2 . . . E2 . . .  D2 . . . . . . . A2 . . . D2 . . .  E2 . . . . . . . B2 . . . E2 . . .  A2 . . . . . . . E2 . . . A2 . . .  A2 . . . . . . . A2 . . . C3 . . .  F2 . . . . . . . C3 . . . F2 . . .  E2 . . . . . . . B2 . . . G2 . . .  A2 . . . . . . . . . . . E2 . . .  F2 . . . . . F2 . A2 . . . C3 . . .  C2 . . . . . C2 . E2 . . . G2 . . .  D2 . . . . . D2 . F2 . . . A2 . . .  G2 . . . . . G2 . B2 . . . D3 . . .  F2 . . . . . F2 . A2 . . . C3 . . .  E2 . . . . . E2 . G2 . . . B2 . . .  D2 . . . . . D2 . F2 . . . A2 . . .  A2 . . . . . . . E2 . . . A2 . . .
+
+
+// ─── LEAD ── 16 bars, sparse melody ────────────────────────────────────────
+// Part A: drifts in then leaves space (bars 5-8 rest, letting the groove breathe).
+// Part B: melody returns and blooms — chord tones outlining each change.
+//        bar1             bar2             bar3             bar4             bar5             bar6             bar7             bar8             bar9             bar10            bar11            bar12            bar13            bar14            bar15            bar16
+lead:  . . . A4 . . . . . . . C5 . . . .  . . . . . . . . D5 . . . . . . .  . . . E5 . . . . . . . D5 . . . .  . . . C5 . . . B4 . . . A4 . . . .  . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . .  . . . . . . . . . . . . . . . .  . . . F4 . . . A4 . . . C5 . . . .  . . . E4 . . . G4 . . . C5 . . . .  . . . F4 . . . A4 . . . D5 . . . .  . . . D5 . . . B4 . . . G4 . . . .  . . . F4 . . . A4 . . . C5 . . . .  . . . E4 . . . G4 . . . B4 . . . .  . . . D4 . . . F4 . . . A4 . . . .  . . . E5 . . . . . . . . . . . .
+
+
+// ─── CHORDS ── 16 bars total ───────────────────────────────────────────────
+// Part A (bars 1-8):  i  iv  v  i  |  i  bVI  v  i      — modal A-minor world
+// Part B (bars 9-16): bVI  bIII  iv  V  |  bVI  v  iv  i  — opens to C major then resolves home
+chords: Am7 Dm7 Em7 Am7 Am7 Fmaj7 Em7 Am7 Fmaj7 Cmaj7 Dm7 G7 Fmaj7 Em7 Dm7 Am7

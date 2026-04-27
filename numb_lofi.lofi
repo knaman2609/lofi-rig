@@ -1,0 +1,47 @@
+@tempo 120
+@swing 0.56
+@fx vinyl 0.30
+@fx reverb 0.45
+//@fx lowpass 0.48
+@instrument lead marimba 0.5
+@instrument chord pad 0.4
+@instrument bass slap 0.2
+
+// Linkin Park - Numb (lofi cover)
+// Key: Ab minor | Progression: Abm - Eb - E - Db 
+
+kick:   x . . . . . . . x . . . . . . .
+snare:  . . . . x . . . . . . . x . . .
+hat:    x . x . x . x . x . x . x . x .
+clap:   . . . . x . . . . . . . x . . .  
+perc:   . . . x . . . . . x . . . . . .
+
+bass:   Ab2 . . . Ab2 . . . Ab2 . . . Ab2 .
+        Eb2 . . . Eb2 . . . E2 . . . Db2 .
+        Ab2 . . . Ab2 . . . Ab2 . . . Ab2 .
+        Eb2 . . . E2 . . . Db2 . . . . .
+
+// Main piano riff: Ab Gb E Eb Db (the iconic descending line)
+lead:   Ab4 . Gb4 . E4 . Eb4 .
+        Db4 . Eb4 . E4 . Gb4 .
+        Ab4 . Gb4 . E4 . Eb4 .
+        Db4 . . . . . . .
+
+        Ab4 . . . Gb4 . E4 .
+        Eb4 . Db4 . Eb4 . E4 .
+        Gb4 . Ab4 . Gb4 . E4 .
+        Eb4 . Db4 . . . . .
+
+        Ab4 . Bb4 . Ab4 . Gb4 .
+        Eb4 . Gb4 . Ab4 . Bb4 . 
+        Ab4 . Gb4 . Eb4 . Db4 .
+        Eb4 . . . Db4 . . .
+
+
+        Gb4 . Ab4 . Gb4 . E4 .
+        Eb4 . Db4 . Eb4 . Gb4 .
+        Ab4 . Gb4 . E4 . Eb4 .
+        Db4 . . . Ab3 . . .
+
+chords: Abm Eb E Db
+        Abm Eb E Db

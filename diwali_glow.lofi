@@ -1,0 +1,78 @@
+// diwali_glow.lofi
+// 8-bar fun/happy Indian lofi in C major
+// Lead colored with Hamsadhwani (Sa Re Ga Pa Ni = C D E G B)
+// Plain major/minor triads — no 7ths — for that bright Bollywood-pop feel
+
+@tempo 140
+//@swing 0.58
+@fx vinyl 0.25
+@fx reverb 0.4
+//@fx lowpass 0.6
+
+//      bar1             bar2             bar3             bar4             bar5             bar6             bar7             bar8
+// teentaal kick: sam (1) + tali (5) + tali (13) — beat 9 is khali (silent)
+kick:   x . . . x . . . . . . . x . . .
+        x . . . x . . . . . . . x . . .
+        x . . . x . . . . . . . x . . .
+        x . . . x . . . . . . . x . . x
+        x . . . x . . . . . . . x . . .
+        x . . . x . . . . . . . x . . .
+        x . . . x . . . . . . . x . . .
+        x . . . x . . . . . . . x . . x
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . x
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . x . . . . x . . .
+        . . . . x . . . . . . . x . x .
+
+clap:   . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+
+//perc:   x . x . x x . x x . x . x x x .
+        x . x . x x . x x . x x x . x .
+        x x x . x . x x x . x . x x x .
+        x . x x x . x x x x x . x x x .
+        x . x . x x . x x . x . x x x .
+        x . x . x x . x x . x x x . x .
+        x x x . x . x x x . x . x x x .
+        x x x x x . x x x . x x x x x x
+
+hat:    x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x x
+
+// tanpura-style drone: root on sam (1), fifth on the khali slot (9) — static, no walking
+bass:   C2 . . . . . . . G2 . . . . . . .
+        G2 . . . . . . . D3 . . . . . . .
+        A2 . . . . . . . E3 . . . . . . .
+        F2 . . . . . . . C3 . . . . . . .
+        C2 . . . . . . . G2 . . . . . . .
+        F2 . . . . . . . C3 . . . . . . .
+        G2 . . . . . . . D3 . . . . . . .
+        C2 . . . . . . . G2 . . . . . . .
+
+lead:   C5 . . . E5 . D5 . E5 . G5 . . . E5 .
+        G5 . . . D5 . B4 . G4 . . . B4 . . .
+        A4 . . . C5 . E5 . . . D5 . E5 . . .
+        F5 . . . E5 . D5 . C5 . . . E5 . . .
+        C5 . . . E5 . G5 . B5 . . . G5 . E5 .
+        A5 . . . G5 . F5 . E5 . D5 . C5 . . .
+        D5 . . . G5 . . . B4 . D5 . G4 . . .
+        C5 . . . E5 . . . G5 . . . C5 . . .
+
+chords: C G Am F C F G C

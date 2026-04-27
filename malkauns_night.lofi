@@ -1,0 +1,41 @@
+@tempo 120
+//  @swing 0.62
+@fx vinyl 0.40
+@fx reverb 0.50 
+//@fx lowpass 0.42
+
+// Malkauns raga: S G(k) M D(k) N(k) (C Eb F Ab Bb)
+// Pentatonic, omits Re (D) and Pa (G). Night raga — deep, still, mysterious.
+
+kick:   x . . . x . . . x . . x . . . .
+snare:  . . . . x . . . . . . . x . . .
+hat:    x . x . x . x . x . x . x . x .
+perc:   . . . x . . . . . . x . . . . .
+clap:   . . . . x . . . . . . . x . . .
+
+bass:   C2 . Eb2 . F2 . Ab2 . Bb2 . Ab2 . F2 .
+        Eb2 . C2 . F2 . Eb2 . C2 . . . C1 .
+        C2 . F2 . Ab2 . Bb2 . Ab2 . F2 . Eb2 .
+        C2 . Eb2 . F2 . Ab2 . F2 . Eb2 . C2 .
+
+lead:   Bb3 Ab3 Bb3 Ab3 F3 Ab3 F3 Eb3
+        F3 Eb3 F3 Eb3 C3 Eb3 C3 Bb2
+        C3 Eb3 F3 Ab3 F3 Eb3 C3 Bb2
+        C3 Bb2 C3 Eb3 F3 Eb3 C3 .
+
+        Ab3 F3 Eb3 F3 Eb3 C3 Bb2 C3
+        Eb3 C3 Bb2 C3 Bb2 Ab2 Bb2 C3
+        Bb2 C3 Eb3 C3 Bb2 Ab2 Bb2 C3
+        Bb2 Ab2 Bb2 C3 Bb2 Ab2 . .
+
+        C3 Bb2 Ab2 Bb2 C3 Bb2 Ab2 F2
+        Ab2 Bb2 C3 Bb2 Ab2 Bb2 C3 .
+        Ab2 Bb2 Ab2 F2 Ab2 Bb2 C3 Bb2
+        Ab2 F2 Ab2 Bb2 C3 . C3 .
+
+chords: Cm Fm Ab Cm
+        Cm Fm Ab Cm
+
+// Bass: pentatonic walk dwelling on Sa (C) and Ma (F), resolves home each bar
+// Lead: classic Malkauns arc — ascends Sa→Ni, descends with characteristic N-D-M-G-S phrases
+// Chords: Cm, Fm, Ab — all built from raga tones, no G or D chord

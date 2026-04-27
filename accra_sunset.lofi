@@ -1,0 +1,40 @@
+@tempo 98
+@swing 0.55
+@fx vinyl 0.18
+@fx reverb 0.28
+@fx lowpass 0.62
+@instrument lead pluck
+@instrument bass slap
+@instrument chord stab
+
+// West African / Afrobeat lofi: C major pentatonic (C D E G A)
+// Polyrhythmic groove, call-and-response melody, Andalusian-inspired bass walk
+
+kick:   x . . x . . x . x . . . x . . .
+snare:  . . . . x . . . . . x . . . x .
+hat:    x . x x x . x . x . x x x . x .
+clap:   . . . . x . . x . . . . x . . .
+perc:   . x . . . . x . . x . . . . x .
+
+bass:   C2 . E2 . G2 . A2 . G2 . E2 . C2 .
+        A1 . C2 . D2 . E2 . G2 . A2 . G2 .
+        C2 . D2 . E2 . G2 . A2 . G2 . E2 .
+        G2 . A2 . G2 . E2 . D2 . C2 . . .
+
+lead:   C4 D4 E4 G4 A4 G4 E4 D4
+        C4 . G3 . A3 C4 D4 E4
+        G4 A4 G4 E4 D4 E4 D4 C4
+        D4 E4 G4 . A4 G4 E4 .
+
+        G4 A4 C5 A4 G4 E4 D4 C4
+        E4 D4 C4 D4 E4 G4 A4 G4
+        E4 D4 E4 G4 A4 G4 E4 D4
+        C4 . D4 E4 G4 E4 C4 .
+
+chords: C Am F G
+        C Am F G
+
+// Kick: syncopated Afrobeat clave feel (3+3+2)
+// Hat: 16th-note throws on beats 2 and 3 give the Afropop bounce
+// Bass: pentatonic walk, always returns to C root
+// Lead: call (ascend C→A) and response (descend A→C), classic West African phrasing

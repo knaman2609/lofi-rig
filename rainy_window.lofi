@@ -1,0 +1,23 @@
+// rainy_window.lofi
+// a sleepy 78bpm lofi beat in A minor
+
+@tempo 78
+@swing 0.62
+//@fx vinyl 0.4
+//@fx reverb 0.35
+//@fx lowpass 0.5
+
+// drums — kick on 1 and 11, snare on 5 and 13, soft hat
+kick:  x x . . . . . . . . x . . . . .
+snare: . . . . x . . x . x . . x . . .
+hat:   x x x x x x x x x x x x x x x x
+
+// warm sub bass — root, 5th, b7, root
+bass:  A2 . . . . . E2 . G2 . . . A2 . . .
+
+// classic lofi progression: i  iv  v  i — looped 4x for a longer drift
+chords: Am7 Dm7 E7 Am7
+chords: Am7 Dm7 E7 Am7
+
+// lead — Bach's signature B-A-C-H motif (Bb, A, C, B-natural), traditional
+//lead:  . . . Bb4 . . A4 . . . C5 . . . B4 .

@@ -1,0 +1,63 @@
+// bageshri_night.lofi
+// 8-bar late-night lofi in Raag Bageshri
+// Scale: Sa Re Ga(k) Ma Pa Dha Ni(k) Sa  =  C D Eb F G A Bb C
+// Vadi: Ma (F) | Samvadi: Sa (C) | Thaat: Kafi
+// Characteristic: Ma–Ga(k) oscillation, Dha–Ni(k)–Sa ascent phrase
+// Mood: deep romantic longing, second watch of night
+
+@tempo 74
+@swing 0.63
+@fx vinyl 0.35
+@fx reverb 0.50
+@fx lowpass 0.57
+
+//      ---- beat 1 -----  ---- beat 2 -----  ---- beat 3 -----  ---- beat 4 -----
+kick:   x . . . . . . . x . . . . . . .
+        x . . . . . . . x . . . . . x .
+        x . . . x . . . . . . . x . . .
+        x . . . . . . . x . . . . . . .
+        x . . . . . . . x . . . . . . .
+        x . . . . . . . x . . . . . x .
+        x . . . x . . . . . . . x . . .
+        x . . . . . . . x . . . . . . .
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . x .
+
+hat:    x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x . x . x x
+
+// tanpura-style drone: Sa drone with Pa, occasionally lifting to Ma
+bass:   C2 . . . . . . . G2 . . . . . . .
+        F2 . . . . . . . C3 . . . . . . .
+        Eb2 . . . . . . . Bb2 . . . . . . .
+        G2 . . . . . . . C3 . . . . . . .
+        C2 . . . . . . . G2 . . . . . . .
+        F2 . . . . . . . C3 . . . . . . .
+        Bb2 . . . . . . . F2 . . . . . . .
+        C2 . . . . . . . G2 . . . . . . .
+
+// Bageshri phrases: Ma–Ga(k) pull, Dha–Ni(k)–Sa climb, then descent through Ma
+lead:   F5 . G5 . Eb5 . D5 . C5 . . . D5 . Eb5 .
+        F5 . . . G5 . . . Bb5 . A5 . G5 . F5 .
+        Eb5 . D5 . C5 . . . Eb5 . F5 . G5 . . .
+        A5 . Bb5 . A5 . G5 . F5 . Eb5 . D5 . C5 .
+        C5 . D5 . Eb5 . F5 . . . G5 . Bb5 . . .
+        A5 . G5 . F5 . Eb5 . F5 . G5 . . . F5 .
+        Eb5 . F5 . Eb5 . D5 . C5 . . . D5 . Eb5 .
+        F5 . G5 . F5 . Eb5 . D5 . C5 . . . . . .
+
+// Kafi-thaat harmony: Cm (tonic) — F (Ma chord) — Bb — Gm
+chords: Cm F Bb Gm Cm F Bb Gm

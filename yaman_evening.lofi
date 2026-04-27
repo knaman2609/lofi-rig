@@ -1,0 +1,35 @@
+@tempo 82
+//@swing 0.2
+@fx vinyl 0.35
+@fx reverb 0.45
+@fx lowpass 0.46
+
+// Yaman raga: S R G M# P D N S' (C D E F# G A B C)
+// Four bars: pure Indian style, melodic focus, Sa/Pa drone, bass is more melodic and responsive.
+
+kick:   x . . . x . . . x . . . x . x .
+snare:  . . x . . . x . . . x . . x x .
+hat:    x . x . x x x . x . x . x . x .
+perc:   . . . . . . . . . x . . x . . .
+
+bass:   C3 . D3 . E3 . G3 . F#3 . E3 . G3 .
+        E3 . F#3 . G3 . D3 . C3 . G2 . . .
+        C3 . E3 . G3 . F#3 . E3 . D3 . C3 .
+        G3 . F#3 . E3 . D3 . C3 . . . G2 .
+
+lead:   C4 E4 F#4 G4 A4 G4 F#4 E4
+        D4 E4 F#4 G4 B3 C4 D4 E4
+        C4 E4 F#4 G4 A4 G4 F#4 E4
+        D4 E4 F#4 G4 B3 C4 D4 E4
+
+        C4 E4 F#4 G4 B4 A4 F#4 G4
+        E4 D4 F#4 A4 G4 F#4 . C5
+        D4 E4 F#4 B4 G4 A4 F#4 E4
+        D4 C4 B3 G4 F#4 E4 D4 C4
+
+chords: C G C G
+        C G C G
+
+// Drums: Kaharwa groove with subtle variations each bar
+// Lead 'wanders' before resolving home in final bar.
+// Bass now has a more melodic, raga-inspired shape.
