@@ -12,7 +12,8 @@
       "Bash(curl -sS -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:5173/)",
       "Bash(curl -sS -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:5174/)",
       "Bash(lsof -i :5173 -sTCP:LISTEN -P)",
-      "Bash(curl -s http://localhost:5174)"
+      "Bash(curl -s http://localhost:5174)",
+      "Bash(grep -E \"\\\\.\\(jsx?|json\\)$\")"
     ]
   }
 }

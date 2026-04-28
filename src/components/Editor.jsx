@@ -24,6 +24,23 @@ export function Editor({ text, errors, onChange, preRef, textareaRef }) {
         ta.selectionStart = ta.selectionEnd = s + 2;
       });
     }
+
+    if ((e.key === 'ArrowUp' || e.key === 'ArrowDown') && e.shiftKey && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      const ta = e.currentTarget;
+      const s = ta.selectionStart, end = ta.selectionEnd;
+      if (s === end) return;
+      e.preventDefault();
+      const delta = e.key === 'ArrowUp' ? 1 : -1;
+      const selected = ta.value.slice(s, end);
+      const transposed = selected.replace(/([A-G][#b]?)(\d)/g, (_, note, oct) => {
+        return note + Math.max(0, Math.min(9, parseInt(oct) + delta));
+      });
+      onChange(ta.value.slice(0, s) + transposed + ta.value.slice(end));
+      requestAnimationFrame(() => {
+        ta.selectionStart = s;
+        ta.selectionEnd = s + transposed.length;
+      });
+    }
   }
 
   return (

@@ -21,6 +21,8 @@ export class LofiEngine {
     this.compressor = new Tone.Compressor(-18, 3).connect(this.eq);
     this.fxChain = this.compressor;
 
+    this.drumBus = new Tone.Gain(1).connect(this.master);
+
     this.vinylGain = new Tone.Gain(0).connect(this.master);
     this.vinylFilter = new Tone.Filter(2400, 'highpass').connect(this.vinylGain);
     this.vinyl = new Tone.Noise('pink').connect(this.vinylFilter);
@@ -33,20 +35,20 @@ export class LofiEngine {
       oscillator: { type: 'sine' },
       envelope: { attack: 0.001, decay: 0.4, sustain: 0.01, release: 1.4 },
       volume: -2,
-    }).connect(this.fxChain);
+    }).connect(this.drumBus);
 
     this.synths.snare = new Tone.NoiseSynth({
       noise: { type: 'pink' },
       envelope: { attack: 0.005, decay: 0.15, sustain: 0 },
 volume: -22,
-    }).connect(this.fxChain);
+    }).connect(this.drumBus);
     this.synths.snareBody = new Tone.MembraneSynth({
       pitchDecay: 0.02, octaves: 2,
       envelope: { attack: 0.001, decay: 0.1, sustain: 0 },
       volume: -18,
-    }).connect(this.fxChain);
+    }).connect(this.drumBus);
 
-    this.synths.hatFilter = new Tone.Filter(8000, 'highpass').connect(this.fxChain);
+    this.synths.hatFilter = new Tone.Filter(8000, 'highpass').connect(this.drumBus);
     this.synths.hat = new Tone.NoiseSynth({
       noise: { type: 'white' },
       envelope: { attack: 0.001, decay: 0.04, sustain: 0 },
@@ -57,14 +59,14 @@ volume: -30,
       noise: { type: 'pink' },
       envelope: { attack: 0.001, decay: 0.18, sustain: 0 },
       volume: -16,
-    }).connect(this.fxChain);
+    }).connect(this.drumBus);
 
     this.synths.perc = new Tone.MetalSynth({
       frequency: 200,
       envelope: { attack: 0.001, decay: 0.1, release: 0.2 },
       harmonicity: 3.1, modulationIndex: 16, resonance: 4000, octaves: 0.5,
       volume: -28,
-    }).connect(this.fxChain);
+    }).connect(this.drumBus);
 
     this.synths.bass = new Tone.MonoSynth({
       oscillator: { type: 'sine' },

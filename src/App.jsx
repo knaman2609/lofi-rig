@@ -21,6 +21,7 @@ export default function App() {
   const [status, setStatus] = useState({ msg: 'ready', error: false });
 
   const fileHandleRef = useRef(null);
+  const libraryTrackIdRef = useRef(null);
   const preRef = useRef(null);
   const textareaRef = useRef(null);
   const activeByTrackRef = useRef(new Map());
@@ -89,6 +90,9 @@ export default function App() {
       } else if (fileHandleRef.current) {
         setMsg('edited (not saved)');
       } else {
+        if (libraryTrackIdRef.current) {
+          localStorage.setItem(`lofi_edit_${libraryTrackIdRef.current}`, next);
+        }
         setMsg('edited');
       }
     }, 350);
@@ -99,10 +103,12 @@ export default function App() {
     const engine = await ensureEngine();
     if (engineRef.current) engineRef.current.stop();
     clearAllFlashes();
-    const p = parseDSL(track.content);
+    const savedContent = localStorage.getItem(`lofi_edit_${track.id}`);
+    const content = savedContent ?? track.content;
+    const p = parseDSL(content);
     if (!isPlayable(p)) { setMsg('nothing playable in this file', true); return; }
-    setText(track.content);
-    setFileInfo({ name: track.file, size: track.content.length, note: 'playing from library' });
+    setText(content);
+    setFileInfo({ name: track.file, size: content.length, note: 'playing from library' });
     setCurrentTrackId(track.id);
     engine.schedule(p);
     engine.start();
@@ -125,8 +131,11 @@ export default function App() {
     setCurrentTrackId(null);
     clearAllFlashes();
     fileHandleRef.current = null;
-    setText(track.content);
-    setFileInfo({ name: track.file, size: track.content.length, note: 'loaded from library' });
+    libraryTrackIdRef.current = track.id;
+    const saved = localStorage.getItem(`lofi_edit_${track.id}`);
+    const content = saved ?? track.content;
+    setText(content);
+    setFileInfo({ name: track.file, size: content.length, note: saved ? 'loaded from library (edited)' : 'loaded from library' });
     setMsg('ready');
     setView('editor');
   }
@@ -137,6 +146,7 @@ export default function App() {
         types: [{ description: 'Lofi DSL', accept: { 'text/plain': ['.lofi', '.txt', '.beat'] } }],
       });
       fileHandleRef.current = handle;
+      libraryTrackIdRef.current = null;
       const file = await handle.getFile();
       const value = await file.text();
       setText(value);

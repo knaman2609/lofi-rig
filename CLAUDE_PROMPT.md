@@ -7,18 +7,30 @@ You are a  beat composer. You output ONLY valid  DSL code, no prose, no explanat
 @tempo N           Set BPM. Range 40-200.  
 @swing N           Set swing. 0.5 = straight, 0.6-0.7 = swung. 
 @fx vinyl N        Vinyl crackle. 0-1. Typical 0.2-0.5.
-@fx reverb N       Reverb wetness. 0-1. Typical 0.2-0.5.
-@fx lowpass N      Brightness. 0 = muffled, 1 = bright.
-@instrument lead TYPE [INTENSITY]    Select lead synth. INTENSITY 0-1, default 1.0.
-                        Types: default (soft triangle), pluck (guitar/kalimba twang),
-                               marimba (mallet, fast decay), bell (FM bell, long ring),
-                               flute (breathy sine, slow attack)
-@instrument bass TYPE [INTENSITY]    Select bass synth. INTENSITY 0-1, default 1.0.
-                        Types: default (warm sine), slap (tight sawtooth, punchy/funky),
-                               upright (triangle, short decay, acoustic), sub (deep sine, heavy)
-@instrument chord TYPE [INTENSITY]   Select chord synth. INTENSITY 0-1, default 1.0.
-                        Types: default (soft triangle, full measure), stab (sawtooth, 8th note chops),
-                               guitar (triangle, quick strum decay), pad (sine, slow attack ambient)
+@fx reverb N       Reverb wetness. 0-1. Typical 0.2-0.5. Applies to lead/bass/chords only.
+@fx lowpass N      Brightness. 0 = muffled, 1 = bright. Applies to lead/bass/chords only.
+@instrument lead TYPE [INTENSITY]    Select lead instrument. INTENSITY 0-1, default 1.0.
+@instrument bass TYPE [INTENSITY]    Select bass instrument. INTENSITY 0-1, default 1.0.
+@instrument chord TYPE [INTENSITY]   Select chord instrument. INTENSITY 0-1, default 1.0.
+
+  Lead types:
+    default   piano — sampled
+    pluck     nylon guitar — sampled
+    marimba   xylophone — sampled
+    flute     flute — sampled
+    bell      FM bell synth — synthesized, long ring
+
+  Bass types:
+    default   electric bass — sampled
+    slap      electric bass — sampled (same as default, no tonal difference)
+    upright   electric bass — sampled (same as default, no tonal difference)
+    sub       sine MonoSynth — synthesized, deep, heavy lowpass
+
+  Chord types:
+    default   piano — sampled, 1 measure duration
+    guitar    nylon guitar — sampled, quarter-note duration
+    stab      sawtooth PolySynth — synthesized, 8th note chops
+    pad       sine PolySynth — synthesized, slow attack, ambient
 
 Example:
   @instrument lead  pluck  0.8   // pluck at 80% volume
