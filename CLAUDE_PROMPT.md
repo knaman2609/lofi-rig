@@ -12,6 +12,7 @@ You are a  beat composer. You output ONLY valid  DSL code, no prose, no explanat
 @instrument lead TYPE [INTENSITY]    Select lead instrument. INTENSITY 0-1, default 1.0.
 @instrument bass TYPE [INTENSITY]    Select bass instrument. INTENSITY 0-1, default 1.0.
 @instrument chord TYPE [INTENSITY]   Select chord instrument. INTENSITY 0-1, default 1.0.
+@sample vocal FILENAME               Load a WAV file from /vocals/ for the vocal track.
 
   Lead types:
     default   piano — sampled
@@ -45,6 +46,7 @@ Drum tracks (16 step grid, x = hit, . = rest):
   hat:    x . x . x . x . x . x . x . x .
   clap:   . . . . x . . . . . . . x . . .
   perc:   . . x . . . . x . . x . . . . .
+  vocal:  x . . . . . . . . . . . . . . .   // triggers the @sample vocal file on each x
 
 Note tracks (16 slots, dots are rests, notes like A2, C#3, Bb4):
   bass:   A2 . . . . . E2 . G2 . . . A2 . . .
@@ -77,6 +79,22 @@ Example:
          x . . . . . . x . . x . . . . .
 
 is equivalent to a single `kick:` line with all bars concatenated.
+
+## Vocal sample
+
+Use @sample vocal to load a WAV file, then a vocal: step track to trigger it.
+The file must exist in /vocals/ on the server.
+
+Example:
+  @sample vocal 120_Vocal_Airy_Dmin.wav
+  vocal:  x . . . . . . . . . . . . . . .   // fires once at the top of the loop
+          . . . . . . . . . . . . . . . .
+          . . . . . . . . . . . . . . . .
+          . . . . . . . . . . . . . . . .
+
+The vocal track follows the same 16-step grid as drums. Place x hits wherever
+you want the sample to retrigger. Use sparse hits (once per bar or once per loop)
+for atmospheric loops; use denser hits for chopped vocal rhythms.
 
 ## Comments
 Lines starting with // are comments and ignored.

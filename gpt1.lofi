@@ -1,0 +1,49 @@
+@tempo 92
+//@swing 0.62
+@fx vinyl 0.32
+@fx reverb 0.34
+@fx lowpass 0.72
+@instrument lead bell 0.58
+@instrument bass sub 0.4
+@instrument chord stab 0.46
+
+kick:   x . . x . . . . . . x . . . . .
+        x . . . . . x . . . x . . . x .
+        x . . x . . . . x . . . . . . .
+        x . . . . . x . . . x . . x . .
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . x
+        . . . . x . . . . . . . x . . .
+
+clap:   . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . x .
+
+hat:    x . x x . x . x x . x . x x . x
+        x x . x . x x . x . x . x x . x
+        x . x x . x . x x . x . x x x .
+        x x . x . x x . x . x . x x . x
+
+perc:   . . x . . . . x . . x . . . . .
+        . x . . . . x . . . x . . x . .
+        . . x . . x . . . . x . . . x .
+        . x . . . . x . . . . . x . . .
+
+//bass:   F2 . . . . . C2 . Eb2 . . . F2 . . .
+        F2 . . . Ab1 . . C2 . Eb2 . . . F2 . .
+        Bb1 . . . . . F2 . Ab1 . . . C2 . . .
+        F2 . . . Eb2 . . C2 . Bb1 . . . F2 . .
+
+chords: Fm7 . . . . . . . Cm7 . . . Eb7 . . .
+        Fm7 . . . Abmaj7 . . . Cm7 . . . Eb7 . .
+        Bbm7 . . . . . . . Fm7 . . . Cm7 . . .
+        Fm7 . . . Eb7 . . . Cm7 . . . Fm7 . . .
+
+lead:   . . F5 . Ab5 . . . C6 . . . Eb6 . C6 .
+        . . Ab5 . C6 . . Eb6 . F6 . Eb6 . C6 . .
+        . . Bb5 . C6 . . Eb6 . . F6 . Eb6 . C6 . 
+        . Ab5 . . C6 . Bb5 . Ab5 . F5 . . . . .
+  

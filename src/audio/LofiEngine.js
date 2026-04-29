@@ -9,6 +9,7 @@ export class LofiEngine {
     this.synths = {};
     this.fxChain = null;
     this.onStep = onStep || (() => {});
+    this._vocalUrl = null;
     this.initFX();
     this.initInstruments();
   }
@@ -214,8 +215,21 @@ this.loaded = Promise.all([
     this.activeChordDur = chordDurs[instruments.chord?.type] || '1n';
   }
 
+  loadVocal(filename) {
+    const url = '/vocals/' + filename;
+    if (this._vocalUrl === url) return;
+    if (this.synths.vocal) {
+      try { this.synths.vocal.stop(); this.synths.vocal.dispose(); } catch (e) {}
+      this.synths.vocal = null;
+    }
+    this.synths.vocal = new Tone.Player({ url, loop: false }).connect(this.fxChain);
+    this.synths.vocal.volume.value = -8;
+    this._vocalUrl = url;
+  }
+
   schedule(pattern) {
     this.clear();
+    if (pattern.samples?.vocal) this.loadVocal(pattern.samples.vocal);
     this.applyFX(pattern.fx);
     this.selectInstruments(pattern.instruments);
 
@@ -286,6 +300,11 @@ this.loaded = Promise.all([
       this.synths.clap.triggerAttackRelease('16n', time);
     } else if (name === 'perc') {
       this.synths.perc.triggerAttackRelease('32n', time);
+    } else if (name === 'vocal') {
+      const v = this.synths.vocal;
+      if (v && v.loaded) {
+        try { v.stop(time); v.start(time); } catch (e) {}
+      }
     }
   }
 
@@ -294,6 +313,9 @@ this.loaded = Promise.all([
       try { p.stop(); p.dispose(); } catch (e) { /* noop */ }
     }
     this.parts = [];
+    if (this.synths.vocal) {
+      try { this.synths.vocal.stop(); } catch (e) {}
+    }
     for (const k of ['piano', 'guitarNylon', 'flute', 'xylophone', 'leadBell', 'chordStab', 'chordPad']) {
       try { this.synths[k]?.releaseAll?.(); } catch (e) { /* noop */ }
     }

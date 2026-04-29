@@ -1,11 +1,22 @@
-@tempo 144
+@tempo 120
 //@swing 0.64
 @fx vinyl 0.22
+@sample vocal 120_Vocal_Airy_Dmin.wav
 @fx reverb 0.36
 @fx lowpass 0.72
 @instrument lead pluck 0.82
 @instrument bass sub 0.90
 @instrument chord stab 0.46
+
+vocal:  x . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        x . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        x . . . . . . . . . . . . . . .
+        x . . . . . . . x . . . x . . .
+
 
 chords: Dm Bbmaj7 C A7
 

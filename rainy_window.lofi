@@ -8,7 +8,7 @@
 //@fx lowpass 0.5
 
 // drums — kick on 1 and 11, snare on 5 and 13, soft hat
-kick:  x x . . . . . . . . x . . . . .
+kick:  x x x . . . . . . . x . . . . .
 snare: . . . . x . . x . x . . x . . .
 hat:   x x x x x x x x x x x x x x x x
 

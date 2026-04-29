@@ -1,46 +1,46 @@
-@tempo 86
-@swing 0.60
-@fx vinyl 0.34
-@fx reverb 0.48
-@fx lowpass 0.64
-@instrument lead flute 0.76
-@instrument bass upright 0.78
-@instrument chord guitar 0.58
+@tempo 94
+@swing 0.58
+@fx vinyl 0.18
+@fx reverb 0.42
+@fx lowpass 0.72
+@instrument lead bell 0.82
+@instrument bass sub 0.2
+@instrument chord pad 0.4
 
 loop: 4
-chords: Gmaj7 D/F# Em7 Cadd9
+chords: Fmaj7 G6 Em7 Am7
 
-kick:   x . . . . . . . . . x . . . . .
-        x . . . . . . x . . x . . . . .
-        x . . . . . . . . . x . . x . .
-        x . . . . . . x . . x . . . . .
+kick:  x x . . . . . . . . x . . . . .
+       x . . . . . . x . . x . . . . .
+       x . . . . . . . . x . . . . . .
+       x . . . . . . x . . x . . . x .
 
-snare:  . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . x .
-        . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . x .
+snare: . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
 
-clap:   . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . . .
+clap:  . . . . x . . . . . . . x . . .
+       . . . . x . . x . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . x . . . . x . . .
 
-hat:    x . x . x . x . x . x . x . x .
-        x . x . x x x . x . x . x x x .
-        x . x . x . x . x . x . x . x .
-        x . x . x x x . x . x . x x x .
+hat:   x . x . x . x . x . x . x . x .
+       x . x x x . x . x . x . x x x .
+       x . x . x . x . x . x . x . x .
+       x . x x x . x . x . x x x . x .
 
-perc:   . . x . . . . x . . x . . . . .
-        . . x . . . x . . . x . . . . x
-        . . x . . . . x . . x . . . x .
-        . . x . . . x . . . x . . . . x
+perc:  . . x . . . . x . . x . . . . .
+       . . . x . . . . . x . . . . x .
+       . . x . . . . x . . x . . . . .
+       . . . x . . x . . x . . . . x .
 
-bass:   G2 . . . . . D2 . G2 . . . B2 . . .
-        F#2 . . . . . C#2 . F#2 . . . A2 . . .
-        E2 . . . . . B1 . E2 . . . G2 . . .
-        C2 . . . . . G1 . C2 . . . E2 . . .
+bass:  F2 . . . . . C3 . G2 . . . E2 . . .
+       F2 . . . A2 . C3 . G2 . . . E2 . . .
+       E2 . . . . . B2 . G2 . . . E2 . . .
+       A2 . . . C3 . E3 . G2 . . . A2 . . .
 
-lead:   . . B4 . D5 . G5 . F#5 . D5 . B4 . . .
-        . . A4 . C#5 . F#5 . E5 . C#5 . A4 . .
-        . . G4 . B4 . E5 . D5 . B4 . G4 . . .
-        . . E4 . G4 . C5 . B4 . G4 . E4 . . .
+lead:  . . C5 . E5 . . . G5 . E5 . D5 . . .
+       . . A4 . C5 . . . E5 . D5 . C5 . . .
+       . . B4 . D5 . . . E5 . G5 . E5 . . .
+       . . A4 . C5 . . . B4 . G4 . A4 . . .

@@ -6,6 +6,7 @@ export function parseDSL(text) {
     swing: 0.5,
     fx: {},
     instruments: {},
+    samples: {},
     drums: {},
     bass: null,
     lead: null,
@@ -65,6 +66,10 @@ function parseDirective(line, r) {
     const name = parts[1];
     const val = parseFloat(parts[2]);
     if (name && !isNaN(val)) r.fx[name] = Math.max(0, Math.min(1, val));
+  } else if (cmd === 'sample') {
+    const name = parts[1];
+    const file = parts[2];
+    if (name && file) r.samples[name] = file;
   } else if (cmd === 'instrument') {
     const track = parts[1];
     const type = parts[2];
@@ -86,7 +91,7 @@ function appendTrack(name, body, r) {
 }
 
 function writeTrack(name, body, r, loop) {
-  const drumNames = ['kick', 'snare', 'hat', 'hihat', 'perc', 'clap'];
+  const drumNames = ['kick', 'snare', 'hat', 'hihat', 'perc', 'clap', 'vocal'];
   if (drumNames.includes(name)) {
     const norm = name === 'hihat' ? 'hat' : name;
     const steps = repeat(parseSteps(body), loop);

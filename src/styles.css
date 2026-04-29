@@ -446,6 +446,24 @@ main.main-home {
   color: var(--accent);
 }
 
+.pick-folder-btn {
+  all: unset;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  border: 1px solid var(--accent);
+  padding: 8px 20px;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+}
+
+.pick-folder-btn:hover {
+  opacity: 1;
+}
+
 /* Header back button */
 .home-btn {
   background: transparent;

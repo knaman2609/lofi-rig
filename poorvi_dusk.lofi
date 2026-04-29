@@ -1,0 +1,48 @@
+@tempo 140
+//@swing 0.62
+@fx vinyl 0.28
+@fx reverb 0.46
+@fx lowpass 0.65
+@instrument lead flute 0.82
+@instrument bass default 0.72
+@instrument chord pad 0.52
+
+// Raag Poorvi — Sa=C, scale: C Db E F F# G Ab B
+// Chords: Cmaj7(Sa) Dbmaj7(re) Fm(Ma-da-Sa) E(Ga-da-Ni)
+// Mood: devotional, sandhiprakash (twilight)
+
+chords: Cmaj7 Dbmaj7 Fm E
+
+kick:   x . . . . . . . x . . . . . . .
+        x . . . . . x . x . . . . . x .
+        x . . . . . . . x . . . . . . .
+        x . . x . . . . x . . x . . . .
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . x . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . x .
+
+hat:    x . x . x . x . x . x . x . x .
+        x . x . x . x x x . x . x . x .
+        x . x . x . x . x . x . x . x .
+        x . x x x . x . x . x . x . x .
+
+perc:   . . x . . . . x . . x . . . . .
+        . x . . . . x . . x . . x . . .
+        . . . x . x . . x . . . . x . .
+        x . . . x . . x . . . x . . x .
+
+bass:   C2 . . . . . G1 . C2 . . . E2 . . .
+        Db2 . . . . . Ab1 . Db2 . . . F2 . . .
+        F1 . . . . . C2 . F1 . . . Ab1 . . .
+        E2 . . . . . B1 . E2 . . . Ab2 . . .
+
+lead:   . . E4 . G4 . B4 . . . G4 . E4 . . .
+        Db4 . E4 . F4 . F#4 . Ab4 . B4 . C5 . . .
+        . . B4 . Ab4 . G4 . F#4 . . . E4 . . .
+        G4 . E4 . Db4 . E4 . . . F4 . E4 . Db4 .
+        . . C5 . B4 . Ab4 . . . B4 . C5 . Db5 .
+        E5 . Db5 . C5 . B4 . . . . . Ab4 . B4 .
+        . . B4 . . . E4 . G4 . Ab4 . G4 . F#4 .
+        . . E4 . Db4 . C4 . . . E4 . G4 . C4 .

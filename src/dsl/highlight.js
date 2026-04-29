@@ -1,6 +1,6 @@
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-const DRUM_NAMES = new Set(['kick', 'snare', 'hat', 'hihat', 'perc', 'clap']);
+const DRUM_NAMES = new Set(['kick', 'snare', 'hat', 'hihat', 'perc', 'clap', 'vocal']);
 const NOTE_NAMES = new Set(['bass', 'lead']);
 const CHORD_NAMES = new Set(['chords', 'pad']);
 

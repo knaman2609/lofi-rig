@@ -1,0 +1,54 @@
+@tempo 74
+@swing 0.65
+@fx vinyl 0.25
+@fx reverb 0.44
+@fx lowpass 0.64
+@instrument lead flute 0.86
+@instrument bass default 0.76
+@instrument chord pad 0.52
+@sample vocal 120_Vocal_Airy_Dmin.wav
+
+chords: Dm G C Am
+
+//vocal:  x . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . x . . . . . . .
+        . . . . . . . . . . . . . . . .
+
+kick:   x . . . . . . . x . . . . . . .
+        x . . . . . x . x . . . . . x .
+        x . . . . . . . x . . . . . . .
+        x . . x . . . . x . . x . . . .
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . x . . . . x . . .
+        . . . . x . . . . . . . x . . .
+        . . . . x . . . . . . . x . x .
+
+hat:    x . x . x . x . x . x . x . x .
+        x . x . x . x . x . x x x . x .
+        x . x . x . x . x . x . x . x .
+        x . x x x . x . x . x . x . x .
+
+perc:   . . x . . . . x . . x . . . x .
+        . x . . x . . . . x . . x . . .
+        . . . x . x . . x . . . . x . .
+        x . . . . x . x . . x . . . . x
+
+bass:   D2 . . . . . A1 . D2 . . . F2 . . .
+        G1 . . . . . D2 . G1 . . . B1 . . .
+        C2 . . . . . G1 . C2 . . . E2 . . .
+        A1 . . . . . E2 . A1 . . . C2 . . .
+
+lead:   . . D5 . F5 . A5 . G5 . F5 . D5 . . .
+        B4 . D5 . G5 . F5 . D5 . B4 . G4 . . .
+        . . E5 . G5 . C5 . B4 . G4 . E4 . . .
+        A4 . C5 . E5 . A5 . G5 . E5 . C5 . A4 .
+        . . D5 . F5 . . . G5 . A5 . G5 . F5 .
+        . . D5 . B4 . G4 . B4 . D5 . F5 . . .
+        . . A4 . C5 . E5 . G5 . F5 . D5 . . .
+        . . B4 . G4 . E4 . G4 . A4 . D5 . . .

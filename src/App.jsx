@@ -6,22 +6,17 @@ import { Footer } from './components/Footer.jsx';
 import { HomeScreen } from './HomeScreen.jsx';
 import { parseDSL, isPlayable } from './dsl/parser.js';
 import { useLofiEngine } from './hooks/useLofiEngine.js';
-import { DEFAULT_LOFI } from './defaultLofi.js';
 
 export default function App() {
   const [view, setView] = useState('home');
-  const [text, setText] = useState(DEFAULT_LOFI);
-  const [fileInfo, setFileInfo] = useState({
-    name: 'rainy_window.lofi',
-    size: DEFAULT_LOFI.length,
-    note: 'default · click load to edit a file from disk',
-  });
+  const [tracks, setTracks] = useState([]);
+  const [text, setText] = useState('');
+  const [fileInfo, setFileInfo] = useState({ name: '', size: 0, note: '' });
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrackId, setCurrentTrackId] = useState(null);
   const [status, setStatus] = useState({ msg: 'ready', error: false });
 
   const fileHandleRef = useRef(null);
-  const libraryTrackIdRef = useRef(null);
   const preRef = useRef(null);
   const textareaRef = useRef(null);
   const activeByTrackRef = useRef(new Map());
@@ -72,6 +67,27 @@ export default function App() {
   const playingRef = useRef(isPlaying);
   useEffect(() => { playingRef.current = isPlaying; }, [isPlaying]);
 
+  async function loadTracksFromDir() {
+    try {
+      const dir = await window.showDirectoryPicker();
+      const loaded = [];
+      for await (const [name, handle] of dir.entries()) {
+        if (handle.kind !== 'file' || !name.endsWith('.lofi')) continue;
+        const id = name.replace(/\.lofi$/, '');
+        const displayName = id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        const file = await handle.getFile();
+        const content = await file.text();
+        const tempoMatch = content.match(/@tempo\s+(\d+)/);
+        const tags = tempoMatch ? [`${tempoMatch[1]} bpm`] : [];
+        loaded.push({ id, name: displayName, file: name, fileHandle: handle, tags });
+      }
+      loaded.sort((a, b) => a.name.localeCompare(b.name));
+      setTracks(loaded);
+    } catch (e) {
+      if (e.name !== 'AbortError') setMsg('load failed: ' + e.message, true);
+    }
+  }
+
   function onTextChange(next) {
     setText(next);
     clearTimeout(editTimerRef.current);
@@ -90,21 +106,17 @@ export default function App() {
       } else if (fileHandleRef.current) {
         setMsg('edited (not saved)');
       } else {
-        if (libraryTrackIdRef.current) {
-          localStorage.setItem(`lofi_edit_${libraryTrackIdRef.current}`, next);
-        }
         setMsg('edited');
       }
     }, 350);
   }
 
-  // Play a track directly from the home grid without switching view.
   async function playFromHome(track) {
     const engine = await ensureEngine();
     if (engineRef.current) engineRef.current.stop();
     clearAllFlashes();
-    const savedContent = localStorage.getItem(`lofi_edit_${track.id}`);
-    const content = savedContent ?? track.content;
+    const file = await track.fileHandle.getFile();
+    const content = await file.text();
     const p = parseDSL(content);
     if (!isPlayable(p)) { setMsg('nothing playable in this file', true); return; }
     setText(content);
@@ -124,20 +136,22 @@ export default function App() {
     setMsg('stopped');
   }
 
-  // Open a track in the editor (stop any current playback first).
-  function handleSelectTrack(track) {
+  async function handleSelectTrack(track) {
     if (engineRef.current) engineRef.current.stop();
     setIsPlaying(false);
     setCurrentTrackId(null);
     clearAllFlashes();
-    fileHandleRef.current = null;
-    libraryTrackIdRef.current = track.id;
-    const saved = localStorage.getItem(`lofi_edit_${track.id}`);
-    const content = saved ?? track.content;
-    setText(content);
-    setFileInfo({ name: track.file, size: content.length, note: saved ? 'loaded from library (edited)' : 'loaded from library' });
-    setMsg('ready');
-    setView('editor');
+    try {
+      fileHandleRef.current = track.fileHandle;
+      const file = await track.fileHandle.getFile();
+      const value = await file.text();
+      setText(value);
+      setFileInfo({ name: file.name, size: file.size, note: 'loaded from library' });
+      setMsg('ready');
+      setView('editor');
+    } catch (e) {
+      setMsg('load failed: ' + e.message, true);
+    }
   }
 
   async function loadFile() {
@@ -146,7 +160,6 @@ export default function App() {
         types: [{ description: 'Lofi DSL', accept: { 'text/plain': ['.lofi', '.txt', '.beat'] } }],
       });
       fileHandleRef.current = handle;
-      libraryTrackIdRef.current = null;
       const file = await handle.getFile();
       const value = await file.text();
       setText(value);
@@ -235,6 +248,8 @@ export default function App() {
       <main className={view === 'home' ? 'main-home' : ''}>
         {view === 'home' ? (
           <HomeScreen
+            tracks={tracks}
+            onPickFolder={loadTracksFromDir}
             onSelect={handleSelectTrack}
             onPlay={playFromHome}
             onStop={stopPlayback}

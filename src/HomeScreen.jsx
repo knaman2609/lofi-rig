@@ -1,5 +1,4 @@
 import { TrackArtwork } from './TrackArtwork.jsx';
-import { TRACKS } from './tracks.js';
 
 function TrackCard({ track, isPlaying, onPlay, onStop, onOpen }) {
   const handleArtClick = () => isPlaying ? onStop() : onPlay(track);
@@ -28,15 +27,29 @@ function TrackCard({ track, isPlaying, onPlay, onStop, onOpen }) {
   );
 }
 
-export function HomeScreen({ onSelect, onPlay, onStop, playingId, isPlaying }) {
+export function HomeScreen({ tracks, onPickFolder, onSelect, onPlay, onStop, playingId, isPlaying }) {
+  if (tracks.length === 0) {
+    return (
+      <div className="home-screen">
+        <div className="home-header">
+          <span className="home-title">lofi.player</span>
+          <span className="home-sub">pick your tracks folder to get started</span>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+          <button className="pick-folder-btn" onClick={onPickFolder}>pick folder</button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="home-screen">
       <div className="home-header">
         <span className="home-title">lofi.player</span>
-        <span className="home-sub">{TRACKS.length} tracks — hover &amp; play</span>
+        <span className="home-sub">{tracks.length} tracks — hover &amp; play</span>
       </div>
       <div className="tracks-grid">
-        {TRACKS.map(track => (
+        {tracks.map(track => (
           <TrackCard
             key={track.id}
             track={track}
@@ -46,7 +59,7 @@ export function HomeScreen({ onSelect, onPlay, onStop, playingId, isPlaying }) {
             onOpen={onSelect}
           />
         ))}
-      </div>
+    </div>
     </div>
   );
 }
