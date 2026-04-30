@@ -23,11 +23,15 @@ export function normalizeNote(n) {
 }
 
 export function chordToNotes(symbol) {
-  const m = symbol.match(/^([A-G][#b]?)(.*)$/);
+  const octMatch = symbol.match(/\/(\d+)$/);
+  const octave = octMatch ? parseInt(octMatch[1]) : 3;
+  const clean = octMatch ? symbol.slice(0, -octMatch[0].length) : symbol;
+
+  const m = clean.match(/^([A-G][#b]?)(.*)$/);
   if (!m) return ['C3', 'E3', 'G3'];
   const root = m[1];
   const quality = m[2].toLowerCase();
-  const rootMidi = noteToMidi(root + '3');
+  const rootMidi = noteToMidi(root + octave);
 
   let intervals;
   if (quality === '' || quality === 'maj') intervals = [0, 4, 7];
@@ -36,10 +40,21 @@ export function chordToNotes(symbol) {
   else if (quality === 'maj7') intervals = [0, 4, 7, 11];
   else if (quality === 'm7' || quality === 'min7') intervals = [0, 3, 7, 10];
   else if (quality === 'dim') intervals = [0, 3, 6];
+  else if (quality === 'dim7') intervals = [0, 3, 6, 9];
+  else if (quality === 'm7b5' || quality === 'hdim') intervals = [0, 3, 6, 10];
+  else if (quality === 'aug') intervals = [0, 4, 8];
+  else if (quality === 'aug7') intervals = [0, 4, 8, 10];
   else if (quality === 'sus4') intervals = [0, 5, 7];
   else if (quality === 'sus2') intervals = [0, 2, 7];
+  else if (quality === '6' || quality === 'maj6') intervals = [0, 4, 7, 9];
+  else if (quality === 'm6') intervals = [0, 3, 7, 9];
   else if (quality === '9') intervals = [0, 4, 7, 10, 14];
+  else if (quality === 'maj9') intervals = [0, 4, 7, 11, 14];
   else if (quality === 'm9') intervals = [0, 3, 7, 10, 14];
+  else if (quality === 'add9') intervals = [0, 4, 7, 14];
+  else if (quality === '11') intervals = [0, 4, 7, 10, 14, 17];
+  else if (quality === '13') intervals = [0, 4, 7, 10, 21];
+  else if (quality === 'maj13') intervals = [0, 4, 7, 11, 21];
   else intervals = [0, 4, 7];
 
   return intervals.map(i => midiToNote(rootMidi + i));

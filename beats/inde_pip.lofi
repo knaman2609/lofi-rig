@@ -1,0 +1,50 @@
+@tempo 112
+@swing 0.54
+@fx vinyl 0.18
+@fx reverb 0.34
+@fx lowpass 0.78
+@instrument lead pluck 0.82
+@instrument bass default 0.85
+@instrument chord guitar 0.68
+
+loop: 2
+chords: Cmaj7 G Am7 Fmaj7
+
+kick:  x . . . . . . . . . x . . . . .
+       x . . . . . . . x . . . . . . .
+       x . . . . . . . . . x . . . . .
+       x . . . . . x . . . x . . . . .
+
+snare: . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . x
+
+clap:  . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . x .
+
+hat:   x . x . x . x . x . x . x . x .
+       x . x x x . x . x . x . x x x .
+       x . x . x . x . x . x . x . x .
+       x . x x x . x . x . x . x x x .
+
+perc:  . . . . . . x . . . . . . . x .
+       . . x . . . . . . . x . . . . .
+       . . . . . . x . . . . . . . x .
+       . . x . . . . . . . x . . x . .
+
+bass:  C2 . . . . . G2 . A2 . . . . . E2 .
+       F2 . . . . . C3 . G2 . . . . . . .
+       C2 . . . E2 . G2 . A2 . . . G2 . E2 .
+       F2 . . . A2 . C3 . G2 . . . . . . .
+
+lead:  . . E4 . G4 . . . B4 . A4 . G4 . . .
+       . . D4 . G4 . . . E5 . D5 . B4 . . .
+       . . C5 . B4 . G4 . A4 . . . G4 . E4 .
+       . . F4 . A4 . C5 . B4 . . . G4 . . .
+       . . E4 . G4 . . . C5 . B4 . A4 . . .
+       . . D4 . E4 . G4 . A4 . . . G4 . E4 .
+       . . C5 . B4 . A4 . G4 . . . E4 . D4 .
+       . . F4 . G4 . A4 . C5 . . . B4 . G4 .

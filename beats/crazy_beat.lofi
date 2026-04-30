@@ -2,13 +2,13 @@
 @swing 0.58
 @fx vinyl 0.18
 @fx reverb 0.42
-@fx lowpass 0.72
+@fx lowpass 0.000001
 @instrument lead bell 0.82
 @instrument bass sub 0.2
 @instrument chord pad 0.4
 
 loop: 4
-chords: Fmaj7 G6 Em7 Am7
+chords: Fmaj7 G3 Em3 Am3
 
 kick:  x x . . . . . . . . x . . . . .
        x . . . . . . x . . x . . . . .

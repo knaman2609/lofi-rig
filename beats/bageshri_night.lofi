@@ -5,11 +5,12 @@
 // Characteristic: Ma–Ga(k) oscillation, Dha–Ni(k)–Sa ascent phrase
 // Mood: deep romantic longing, second watch of night
 
-@tempo 74
+@tempo 174
 @swing 0.63
 @fx vinyl 0.35
 @fx reverb 0.50
 @fx lowpass 0.57
+@instrument lead bell 
 
 //      ---- beat 1 -----  ---- beat 2 -----  ---- beat 3 -----  ---- beat 4 -----
 kick:   x . . . . . . . x . . . . . . .
@@ -54,10 +55,6 @@ lead:   F5 . G5 . Eb5 . D5 . C5 . . . D5 . Eb5 .
         F5 . . . G5 . . . Bb5 . A5 . G5 . F5 .
         Eb5 . D5 . C5 . . . Eb5 . F5 . G5 . . .
         A5 . Bb5 . A5 . G5 . F5 . Eb5 . D5 . C5 .
-        C5 . D5 . Eb5 . F5 . . . G5 . Bb5 . . .
-        A5 . G5 . F5 . Eb5 . F5 . G5 . . . F5 .
-        Eb5 . F5 . Eb5 . D5 . C5 . . . D5 . Eb5 .
-        F5 . G5 . F5 . Eb5 . D5 . C5 . . . . . .
-
+   
 // Kafi-thaat harmony: Cm (tonic) — F (Ma chord) — Bb — Gm
 chords: Cm F Bb Gm Cm F Bb Gm

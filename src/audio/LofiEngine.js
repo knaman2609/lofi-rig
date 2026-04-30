@@ -24,8 +24,8 @@ export class LofiEngine {
 
     this.drumBus = new Tone.Gain(1).connect(this.master);
 
-    this.vinylGain = new Tone.Gain(0).connect(this.master);
-    this.vinylFilter = new Tone.Filter(2400, 'highpass').connect(this.vinylGain);
+    this.vinylGain = new Tone.Gain(0).connect(this.lowpass);
+    this.vinylFilter = new Tone.Filter(1200, 'highpass').connect(this.vinylGain);
     this.vinyl = new Tone.Noise('pink').connect(this.vinylFilter);
     this.vinyl.start();
   }
@@ -182,7 +182,7 @@ this.loaded = Promise.all([
     this.reverb.wet.rampTo(rev, 0.2);
 
     const bright = fx.lowpass ?? fx.brightness ?? 0.55;
-    const cutoff = 800 + bright * 9000;
+    const cutoff = 40 + bright * 450;
     this.lowpass.frequency.rampTo(cutoff, 0.3);
   }
 

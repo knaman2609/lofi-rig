@@ -1,0 +1,58 @@
+// city_sprint.lofi
+// 8-bar fast lofi in A harmonic minor — upbeat, energetic, urban dash
+// Scale: A B C D E F G# | Progression: Am7 - E7 - Fmaj7 - Dm7
+// Sister track to amber_alley — same key, double the energy
+
+@tempo 140
+@swing 0.52
+@fx vinyl 0.10
+@fx reverb 0.22
+@fx lowpass 0.78
+@instrument lead bell 2.0
+@instrument bass default 0.1
+@instrument chord stab 3.8
+
+chords: Am7/4 E7/4 Fmaj7/4 Dm7/4
+
+kick:   x . . . x . . . . . x . . . . .
+        x . . x . . . . x . . . x . . .
+        x . . . x . . x . . x . . . . .
+        x . . . . . x . . . x . . x x x
+
+snare:  . . . . x . . . . . . . x . . .
+        . . . . x . . x . . . . x . . .
+        . . . . x . . . . . . . x . x .
+        . . . . x . x . . . . . x . . .
+
+hat:    x . x . x . x . x . x . x . x .
+        x x x . x . x x x . x . x x x .
+        x . x . x . x . x . x . x . x .
+        x x x . x x x . x . x x x . x .
+
+//clap:   . . . . x . . . . . . . x . . .
+        . . . . . . . . . . . . . . . .
+        . . . . x . . . . . . . x . . .
+        . . . . . . . . . . . . . . . .
+
+//perc:   . . x . . . x . . . x . . . x .
+        . . . . . . x . . . . . x . . .
+        . . x . . . . . x . . . . . x .
+        . . . x . . . . . . x . . x . .
+
+bass:   A2 . E2 . A2 . . . C3 . E2 . G#2 . E2 .
+        F2 . . . A2 . C3 . F2 . A2 . C3 . . .
+        D2 . A2 . D2 . . . F2 . D2 . E2 . . .
+        E2 . B2 . G#2 . E2 . B2 . E2 . . . . .
+        A2 . E2 . A2 . . . C3 . E2 . G#2 . A2 .
+        F2 . . . A2 . C3 . F2 . . . A2 . C3 .
+        D2 . F2 . A2 . D3 . . . C3 . A2 . . .
+        E2 . G#2 . B2 . E3 . D3 . B2 . A2 . . .
+
+lead:   . . A4 . C5 . E5 . D5 . . . E5 . A5 .
+        G#4 . A4 . . . C5 . E5 . D5 . . . . .
+        F4 . A4 . C5 . D5 . C5 . A4 . G#4 . . .
+        E4 . G#4 . B4 . E5 . D5 . B4 . A4 . . .
+        . . C5 . E5 . A5 . G#5 . E5 . D5 . C5 .
+        A4 . . . C5 . E5 . G#5 . A5 . . . . .
+        F4 . A4 . C5 . F5 . E5 . D5 . C5 . A4 .
+        E5 . D5 . C5 . B4 . A4 . G#4 . A4 . . .
