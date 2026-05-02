@@ -7,6 +7,7 @@ export function parseDSL(text) {
     fx: {},
     instruments: {},
     samples: {},
+    kit: {},
     drums: {},
     bass: null,
     lead: null,
@@ -53,8 +54,16 @@ export function parseDSL(text) {
   return result;
 }
 
+function tokenizeDirective(s) {
+  const tokens = [];
+  const re = /"([^"]*)"|(\S+)/g;
+  let m;
+  while ((m = re.exec(s)) !== null) tokens.push(m[1] !== undefined ? m[1] : m[2]);
+  return tokens;
+}
+
 function parseDirective(line, r) {
-  const parts = line.slice(1).split(/\s+/);
+  const parts = tokenizeDirective(line.slice(1));
   const cmd = parts[0];
   if (cmd === 'tempo') {
     const v = parseFloat(parts[1]);
@@ -75,6 +84,13 @@ function parseDirective(line, r) {
     const type = parts[2];
     const intensity = parts[3] !== undefined ? Math.max(0, Math.min(1, parseFloat(parts[3]))) : 1.0;
     if (track && type) r.instruments[track] = { type, intensity: isNaN(intensity) ? 1.0 : intensity };
+  } else if (cmd === 'kit') {
+    const role = parts[1];
+    const name = parts[2];
+    if (role && name) {
+      r.kit = r.kit || {};
+      r.kit[role] = name;
+    }
   }
 }
 

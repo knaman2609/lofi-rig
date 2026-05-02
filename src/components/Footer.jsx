@@ -2,6 +2,7 @@ export function Footer({
   status,
   isError,
   isPlaying,
+  isLoading,
   canReload,
   canPlay,
   onLoad,
@@ -16,7 +17,9 @@ export function Footer({
       <div className="spacer" />
       <span className={'status' + (isError ? ' error' : '')}>{status}</span>
       <div className={'indicator' + (isPlaying ? ' playing' : '')} />
-      <button className="primary" onClick={onPlay} disabled={!canPlay}>play</button>
+      <button className="primary" onClick={onPlay} disabled={!canPlay || isLoading || isPlaying}>
+        {isLoading ? 'loading...' : 'play'}
+      </button>
       <button onClick={onStop} disabled={!isPlaying}>stop</button>
     </footer>
   );

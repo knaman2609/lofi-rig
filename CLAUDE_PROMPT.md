@@ -13,25 +13,68 @@ You are a  beat composer. You output ONLY valid  DSL code, no prose, no explanat
 @instrument bass TYPE [INTENSITY]    Select bass instrument. INTENSITY 0-1, default 1.0.
 @instrument chord TYPE [INTENSITY]   Select chord instrument. INTENSITY 0-1, default 1.0.
 @sample vocal FILENAME               Load a WAV file from /vocals/ for the vocal track.
+@kit ROLE "SAMPLE NAME"              Override drum sample for one role. ROLE = kick|snare|hat|clap|perc.
+
+  Drum samples (Clark Audio Lofi Cookout). Use the descriptor only — no "Clark Audio - " prefix, no .wav.
+    Kicks:    "Kick 8bit" "Kick Beat" "Kick Crunchy" "Kick Duty Vinyl" "Kick Heavy n Muddy" "Kick Luv"
+              "Kick OG" "Kick Offbeat Swing" (and more in /samples/drums/Kicks/)
+    Snares:   "Snare Bottles" "Snare Chipped" "Snare Classic Record" "Snare Classix" "Snare Coffee"
+              "Snare Deluxe" "Snare Dirty" "Snare Earthy Crunchy" (and more in /samples/drums/Snares/)
+    Hi-Hats:  "HiHat Classic" "HiHat Dusty" "HiHat Heavy" "HiHat Muddy" "HiHat Skippy" "HiHat Vintage"
+    Foley:    "Foley Click" "Foley Crunchy" "Foley Glass" "Foley Hangers" "Foley Subtle" "Foley Thump"
+
+  Defaults if @kit is not specified:
+    kick = "Kick Duty Vinyl"   snare = "Snare Classic Record"   hat = "HiHat Dusty"
+    clap = "Snare Bottles"     perc  = "Foley Click"
+
+  Cross-folder is allowed: a kick role can use a Foley sample. Folder is inferred from the first
+  word of the sample name (Kick, Snare, HiHat, Foley, Texture).
+
+Example:
+  @kit kick  "Kick OG"
+  @kit snare "Snare Coffee"
+  @kit hat   "HiHat Muddy"
+  @kit perc  "Foley Thump"
 
   Lead types:
-    default   piano — sampled
-    pluck     nylon guitar — sampled
-    marimba   xylophone — sampled
-    flute     flute — sampled
-    bell      FM bell synth — synthesized, long ring
+    default    piano — sampled
+    pluck      nylon guitar — sampled
+    marimba    xylophone — sampled
+    flute      flute — sampled
+    bell       FM bell synth — synthesized, long ring
+    cello      cello — sampled, warm sustained
+    violin     violin — sampled, bright sustained
+    sax        saxophone — sampled, breathy mid-range
+    trumpet    trumpet — sampled, bright brass
+    clarinet   clarinet — sampled, woody mid-range
+    harp       harp — sampled, gentle plucked
+    bassoon    bassoon — sampled, woody low-mid
+    horn       french horn — sampled, mellow brass
+    organ      organ — sampled, sustained
+    harmonium  harmonium — sampled, reedy sustained
+    acoustic   acoustic guitar — sampled
+    electric   electric guitar — sampled
 
   Bass types:
-    default   electric bass — sampled
-    slap      electric bass — sampled (same as default, no tonal difference)
-    upright   electric bass — sampled (same as default, no tonal difference)
-    sub       sine MonoSynth — synthesized, deep, heavy lowpass
+    default     electric bass — sampled
+    slap        electric bass — sampled (same as default)
+    upright     electric bass — sampled (same as default)
+    sub         sine MonoSynth — synthesized, deep, heavy lowpass
+    contrabass  contrabass — sampled, acoustic upright bass
+    tuba        tuba — sampled, deep brass
+    trombone    trombone — sampled, mid-low brass
+    cello       cello — sampled, warm low-mid
 
   Chord types:
-    default   piano — sampled, 1 measure duration
-    guitar    nylon guitar — sampled, quarter-note duration
-    stab      sawtooth PolySynth — synthesized, 8th note chops
-    pad       sine PolySynth — synthesized, slow attack, ambient
+    default    piano — sampled, 1 measure duration
+    guitar     nylon guitar — sampled, quarter-note duration
+    stab       sawtooth PolySynth — synthesized, 8th note chops
+    pad        sine PolySynth — synthesized, slow attack, ambient
+    acoustic   acoustic guitar — sampled, quarter-note strum
+    electric   electric guitar — sampled, quarter-note
+    organ      organ — sampled, full measure sustain
+    harmonium  harmonium — sampled, full measure sustain
+    strings    cello — sampled, full measure sustain
 
 Example:
   @instrument lead  pluck  0.8   // pluck at 80% volume

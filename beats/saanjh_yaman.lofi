@@ -1,0 +1,64 @@
+// saanjh_yaman.lofi
+// 8-bar Indian lofi in Raag Yaman — saanjh = dusk
+// Scale: C D E F# G A B  (Thaat: Kalyan / Lydian)
+// Vadi: Ga (E)  |  Samvadi: Ni (B)
+// Aaroh:  Ni Re Ga, Ma# Dha Ni Sa
+// Avaroh: Sa Ni Dha Pa, Ma# Ga Re Sa
+// Tivra Ma (F#) gives the characteristic Lydian shimmer
+// Progression: Cmaj7 - Em7 - Am7 - Dadd9 (Lydian voice-leading)
+
+@tempo 74
+@swing 0.58
+@fx vinyl 0.20
+@fx reverb 0.48
+@fx lowpass 0.5
+
+@instrument lead harp
+@instrument bass contrabass 0.5
+@instrument chord harmonium 0.2
+
+@kit kick  "kick_soft"
+@kit snare "snare_dirty"
+@kit hat   "hihat_skippy"
+@kit perc  "foley_glass"
+
+loop: 2
+chords: Cmaj7/3 Em7/3 Am7/3 Dadd9/3
+
+kick:   x . . . . . . . . . x . . . . .
+        x . . . . . . x . . . . . . . .
+        x . . . . . . . . . x . . . . .
+        x . . . . . x . . . . . . . . .
+
+snare:  . . . . . . . . . . . . x . . .
+        . . . . x . . . . . . . . . . .
+        . . . . . . . . . . . . x . . .
+        . . . . x . . . . . . . . . . .
+
+hat:    x . x . . . x . . . x . . . x .
+        x . x . . . x . . . x . . . x .
+        x . x . . . x . . . x . . . x .
+        x . x . . . x . . . x . . . x .
+
+perc:   . . . . . . . x . . . . . . . .
+        . . . . . . . . . . . . . . . x
+        . . . . . . . x . . . . . . . .
+        . . . . . . . . . . . . . . . x
+
+bass:   C2 . . . . . G2 . . . C3 . . . E2 .
+        E2 . . . B2 . . . . . D3 . . . G2 .
+        A2 . . . . . E2 . . . C3 . . . E2 .
+        D2 . . . F#2 . . . . . A2 . . . D3 .
+        C2 . . . . . G2 . . . C3 . . . E2 .
+        E2 . . . B2 . . . . . D3 . . . G2 .
+        A2 . . . . . E2 . . . C3 . . . E2 .
+        D2 . . . F#2 . . . . . A2 . . . D3 .
+
+lead:   . . E4 . . . B4 . . . C5 . . . E5 .
+        . . B4 . . . D5 . . . E5 . . . . .
+        A4 . . . G4 . F#4 . E4 . D4 . . . . .
+        F#4 . . . A4 . D5 . . . F#5 . . . E5 .
+        . . E5 . . . B5 . . . C6 . . . B5 .
+        B4 . D5 . E5 . . . F#5 . A5 . B5 . . .
+        A5 . G5 . F#5 . E5 . D5 . C5 . B4 . A4 .
+        F#4 . . . E4 . D4 . . . C4 . . . . .

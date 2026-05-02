@@ -7,7 +7,7 @@
 @swing 0.52
 @fx vinyl 0.10
 @fx reverb 0.22
-@fx lowpass 0.78
+//@fx lowpass 0.78
 @instrument lead bell 2.0
 @instrument bass default 0.1
 @instrument chord stab 3.8

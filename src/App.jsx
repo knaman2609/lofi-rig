@@ -13,6 +13,7 @@ export default function App() {
   const [text, setText] = useState('');
   const [fileInfo, setFileInfo] = useState({ name: '', size: 0, note: '' });
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentTrackId, setCurrentTrackId] = useState(null);
   const [status, setStatus] = useState({ msg: 'ready', error: false });
 
@@ -94,7 +95,7 @@ export default function App() {
     editTimerRef.current = setTimeout(async () => {
       const p = parseDSL(next);
       if (playingRef.current && engineRef.current && isPlayable(p)) {
-        engineRef.current.schedule(p);
+        await engineRef.current.schedule(p);
       }
       const saved = await saveToDisk(next);
       if (saved) {
@@ -112,20 +113,28 @@ export default function App() {
   }
 
   async function playFromHome(track) {
-    const engine = await ensureEngine();
-    if (engineRef.current) engineRef.current.stop();
-    clearAllFlashes();
-    const file = await track.fileHandle.getFile();
-    const content = await file.text();
-    const p = parseDSL(content);
-    if (!isPlayable(p)) { setMsg('nothing playable in this file', true); return; }
-    setText(content);
-    setFileInfo({ name: track.file, size: content.length, note: 'playing from library' });
-    setCurrentTrackId(track.id);
-    engine.schedule(p);
-    engine.start();
-    setIsPlaying(true);
-    setMsg('playing · ' + track.name);
+    setIsLoading(true);
+    setMsg('loading...');
+    try {
+      const engine = await ensureEngine();
+      if (engineRef.current) engineRef.current.stop();
+      clearAllFlashes();
+      const file = await track.fileHandle.getFile();
+      const content = await file.text();
+      const p = parseDSL(content);
+      if (!isPlayable(p)) { setMsg('nothing playable in this file', true); setIsLoading(false); return; }
+      setText(content);
+      setFileInfo({ name: track.file, size: content.length, note: 'playing from library' });
+      setCurrentTrackId(track.id);
+      await engine.schedule(p);
+      engine.start();
+      setIsPlaying(true);
+      setIsLoading(false);
+      setMsg('playing · ' + track.name);
+    } catch (e) {
+      setIsLoading(false);
+      setMsg('playback error: ' + e.message, true);
+    }
   }
 
   function stopPlayback() {
@@ -180,7 +189,7 @@ export default function App() {
       setText(value);
       const p = parseDSL(value);
       if (playingRef.current && engineRef.current) {
-        engineRef.current.schedule(p);
+        await engineRef.current.schedule(p);
         setMsg('reloaded · playing');
       } else {
         setMsg('reloaded');
@@ -193,23 +202,43 @@ export default function App() {
   }
 
   async function play() {
-    const engine = await ensureEngine();
-    let value = text;
-    const handle = fileHandleRef.current;
-    if (handle) {
-      const file = await handle.getFile();
-      value = await file.text();
-      setText(value);
+    console.log('[play] START');
+    setIsLoading(true);
+    setMsg('loading...');
+    try {
+      console.log('[play] Ensuring engine...');
+      const engine = await ensureEngine();
+      console.log('[play] Engine ready');
+      let value = text;
+      const handle = fileHandleRef.current;
+      if (handle) {
+        const file = await handle.getFile();
+        value = await file.text();
+        setText(value);
+      }
+      const p = parseDSL(value);
+      if (!isPlayable(p) && p.errors.length > 0) {
+        console.log('[play] Parse errors');
+        setMsg('parse errors — nothing to play', true);
+        setIsLoading(false);
+        return;
+      }
+      console.log('[play] About to call engine.schedule()...');
+      const scheduleStart = Date.now();
+      await engine.schedule(p);
+      const scheduleElapsed = Date.now() - scheduleStart;
+      console.log(`[play] engine.schedule() completed in ${scheduleElapsed}ms`);
+      console.log('[play] About to call engine.start()...');
+      engine.start();
+      console.log('[play] engine.start() called');
+      setIsPlaying(true);
+      setIsLoading(false);
+      setMsg('playing');
+    } catch (e) {
+      console.error('[play] Error:', e);
+      setIsLoading(false);
+      setMsg('playback error: ' + e.message, true);
     }
-    const p = parseDSL(value);
-    if (!isPlayable(p) && p.errors.length > 0) {
-      setMsg('parse errors — nothing to play', true);
-      return;
-    }
-    engine.schedule(p);
-    engine.start();
-    setIsPlaying(true);
-    setMsg('playing');
   }
 
   function stop() {
@@ -274,6 +303,7 @@ export default function App() {
           status={status.msg}
           isError={status.error}
           isPlaying={isPlaying}
+          isLoading={isLoading}
           canReload={!!fileHandleRef.current}
           canPlay={true}
           onLoad={loadFile}
