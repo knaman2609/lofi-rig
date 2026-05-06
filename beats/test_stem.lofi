@@ -1,0 +1,10 @@
+// Test beat for stem loading
+@tempo 74
+@sample vocal 120_vocal_airy_dmin.wav
+@sample melody dmin_74bpm_melody_1.wav
+
+kick:  x . . . . . . . . . x . . . . .
+snare: . . . . x . . . . . . . x . . .
+hat:   x . x . . . x . . . x . . . x .
+vocal: x . . . . . . . . . . . . . . .
+melody: . . x . . . . x . . . . x . . .

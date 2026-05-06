@@ -1,0 +1,40 @@
+@tempo 120
+@swing 0.65
+@fx vinyl 0.35
+@fx reverb 0.4
+@fx lowpass 0.75
+@instrument lead bell 0.9
+@instrument bass cello 0.8
+@instrument chord guitar 0.6
+@sample kick "Kick Crunchy"
+@sample snare "Snare Deluxe"
+@sample hat "HiHat Dusty"
+
+kick:  x . . . . . . . . . x . . . x .
+       x . . . . . . . . . x . . . x .
+       x . . . . . . . . . x . . . . .
+       x . . . . . . . . . x . . . x .
+
+snare: . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . . x . . .
+
+hat:   x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+
+bass:  A2 . . . . . E2 . A2 . . . . . . .
+       A2 . . . . . E2 . G2 . . . . . . .
+       A2 . . . . . D2 . A2 . . . . . . .
+       A2 . . . . . E2 . G2 . . . . . . .
+
+lead:  D5 . C5 . Bb4 . . . A4 . . . . . . .
+       A4 . . . Bb4 . C5 . D5 . F5 . D5 . .
+       D5 . C5 . Bb4 . A4 . . . . . . . . .
+       . . Bb4 . C5 . D5 . C5 . Bb4 . A4 . .
+      
+
+
+chords: Am7 Dm7

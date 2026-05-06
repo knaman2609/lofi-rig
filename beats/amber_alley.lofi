@@ -6,14 +6,18 @@
 
 @tempo 82
 @swing 0.63
-@fx vinyl 0.24
+@fx vinyl 0.8
 @fx reverb 0.40
-@fx lowpass 0.8
-@instrument lead pluck 2
-@instrument bass sub 0.3
+//@fx lowpass 0.3
+@instrument lead piano 0.8
+@instrument bass cello 0.6
 @instrument chord pad 0.1
 
-chords: Am7/3 Fmaj7/3 Dm7/3 E7/3
+@sample kick  "kick_og"
+@sample snare "snare_earthy"
+@sample hat   "hihat_muddy"
+
+chords: Am7/2 Fmaj7/2 Dm7/2 E7/2
 
 kick:     x . . . . . . . . . x . . . . .
           x . . . . . x . x . . . . . . .

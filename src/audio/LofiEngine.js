@@ -2,9 +2,9 @@ import * as Tone from 'tone';
 import { chordToNotes } from '../dsl/notes.js';
 
 const SAMPLES_BASE = '/samples/';
+const INSTRUMENTS_BASE = '/instruments/';
 
-// Map from sample-name prefix (first word) to drum pack subfolder.
-// Lets `@kit kick "Foley Thump"` find the file in /Foley/, even though the role is "kick".
+// Map from sample-name prefix to drum pack subfolder for resolving drum file paths.
 const DRUM_FOLDER_MAP = { Kick: 'Kicks', Snare: 'Snares', HiHat: 'Hi Hats', Foley: 'Foley', Texture: 'Textures' };
 const DRUM_VOLS = { kick: -3, snare: -8, hat: -14, clap: -10, perc: -16 };
 
@@ -28,7 +28,8 @@ export class LofiEngine {
     this.synths = {};
     this.fxChain = null;
     this.onStep = onStep || (() => {});
-    this._vocalUrl = null;
+    this._stemPlayers = {};
+    this._stemUrls = {};
     this.initFX();
     this.initInstruments();
   }
@@ -162,7 +163,6 @@ this._instrumentConfigs = {
 this._drumCache = {};
 this.activeDrums = {};
 
-// Drums are lazy-loaded on demand by applyKit
 this.loaded = Promise.resolve();
   }
 
@@ -193,7 +193,7 @@ this.loaded = Promise.resolve();
     console.log('[instrument] Loading', key, 'with', notesToLoad.length, 'notes');
     this.synths[key] = new Tone.Sampler({
       urls: this._buildUrls(notesToLoad),
-      baseUrl: SAMPLES_BASE + config.folder + '/'
+      baseUrl: INSTRUMENTS_BASE + config.folder + '/'
     }).connect(this.fxChain);
     this.synths[key].volume.value = config.vol;
     this.synths[key]._loadingKey = key;
@@ -256,17 +256,9 @@ this.loaded = Promise.resolve();
     return cached;
   }
 
-  applyKit(kit) {
-    if (!kit) return;
-    for (const [role, name] of Object.entries(kit)) {
-      const sampler = this._getOrCreateDrumSampler(role, name);
-      if (sampler) this.activeDrums[role] = sampler;
-    }
-  }
-
   applyFX(fx) {
     const vinyl = fx.vinyl ?? 0.15;
-    this.vinylGain.gain.rampTo(vinyl * 0.025, 0.2);
+    this.vinylGain.gain.rampTo(vinyl * 0.15, 0.2);
 
     const rev = fx.reverb ?? 0.25;
     this.reverb.wet.rampTo(rev, 0.2);
@@ -361,30 +353,30 @@ this.loaded = Promise.resolve();
     this.activeChordDur = chordDurs[instruments.chord?.type] || '1n';
   }
 
-  loadVocal(filename) {
-    const url = '/vocals/' + filename;
-    if (this._vocalUrl === url) return;
-    if (this.synths.vocal) {
-      try { this.synths.vocal.stop(); this.synths.vocal.dispose(); } catch (e) {}
-      this.synths.vocal = null;
+  loadStem(name, filename, intensity = 1.0) {
+    const url = '/samples/' + filename;
+    if (this._stemUrls[name] === url) return;
+    if (this._stemPlayers[name]) {
+      try { this._stemPlayers[name].stop(); this._stemPlayers[name].dispose(); } catch (e) {}
+      this._stemPlayers[name] = null;
     }
-    this.synths.vocal = new Tone.Player({ url, loop: false }).connect(this.fxChain);
-    this.synths.vocal.volume.value = -8;
-    this._vocalUrl = url;
+    this._stemPlayers[name] = new Tone.Player({ url, loop: false }).connect(this.drumBus);
+    const gainToDb = g => 20 * Math.log10(Math.max(0.0001, g));
+    this._stemPlayers[name].volume.value = 6 + gainToDb(intensity);
+    this._stemUrls[name] = url;
   }
 
   async schedule(pattern) {
     console.log('\n=== SCHEDULE START ===');
     console.log('[schedule] pattern keys:', Object.keys(pattern));
-    console.log('[schedule] pattern.kit:', pattern.kit);
     console.log('[schedule] pattern.instruments:', pattern.instruments);
 
     this.clear();
-    if (pattern.samples?.vocal) this.loadVocal(pattern.samples.vocal);
-
-    console.log('\n>>> [schedule] CALLING applyKit with kit:', JSON.stringify(pattern.kit));
-    this.applyKit(pattern.kit);
-    console.log('<<< [schedule] AFTER applyKit, activeDrums has', Object.keys(this.activeDrums).length, 'drums:', Object.keys(this.activeDrums));
+    for (const [name, sample] of Object.entries(pattern.samples ?? {})) {
+      const file = typeof sample === 'string' ? sample : sample.file;
+      const intensity = typeof sample === 'string' ? 1.0 : (sample.intensity ?? 1.0);
+      this.loadStem(name, file, intensity);
+    }
 
     this.applyFX(pattern.fx);
 
@@ -481,10 +473,10 @@ this.loaded = Promise.resolve();
   }
 
   triggerDrum(name, time) {
-    if (name === 'vocal') {
-      const v = this.synths.vocal;
-      if (v && v.loaded) {
-        try { v.stop(time); v.start(time); } catch (e) {}
+    if (this._stemPlayers[name]) {
+      const p = this._stemPlayers[name];
+      if (p && p.loaded) {
+        try { p.stop(time); p.start(time); } catch (e) {}
       }
       return;
     }
@@ -517,8 +509,8 @@ this.loaded = Promise.resolve();
       try { p.stop(); p.dispose(); } catch (e) { /* noop */ }
     }
     this.parts = [];
-    if (this.synths.vocal) {
-      try { this.synths.vocal.stop(); } catch (e) {}
+    for (const player of Object.values(this._stemPlayers)) {
+      try { player.stop(); } catch (e) {}
     }
     const samplerKeys = [
       'piano', 'guitarNylon', 'flute', 'xylophone', 'leadBell', 'chordStab', 'chordPad',

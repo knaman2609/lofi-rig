@@ -1,0 +1,25 @@
+@tempo 62
+//@swing 0.55
+@fx reverb 0.45
+@fx lowpass 0.75
+@instrument lead piano 0.9
+@instrument bass contrabass 0.8
+@instrument chord harmonium 0.5
+@sample kick "Kick Duty Vinyl"
+@sample snare "Snare Deluxe"
+@sample hat "HiHat Dusty"
+@sample perc "Foley Subtle"
+
+kick:  x . . . . . . . . . x . . . . .
+       x . . . . . . . . . x . . . . .
+
+
+
+lead:  . . . C4 . . . . . . . . . . . .
+       D4 . . . F4 . . . E4 . . . . . . .
+       C4 . . . D4 . . . F4 . . . E4 . . .
+       . . . . C4 . . . D4 . . . F4 . . .
+       . . . . F4 . . . G4 . . . A4 . . .
+       . . . . G4 . . . . . . . A4 . . .
+       A4 . . . G4 . . . F4 . . . E4 . . .
+       . . . . D4 . . . C4 . . . . . . .

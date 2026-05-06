@@ -1,31 +1,66 @@
 // tokyo_drive.lofi
-// 8-bar Japanese city-pop flavored lofi in F major
-// IVmaj7 - V7 - iii - vi  |  ii - V - I - vi (turnaround)
+// Slow Japanese lofi in C major — meditative, contemplative
+// Scale: C D E F G A B (Ionian mode)
+// Progression: Cmaj7 - Am7 - Fmaj7 - G7sus4 (gentle, flowing)
 
-@tempo 102
-//@swing 0.62
-@fx vinyl 0.2
-@fx reverb 0.45
+@tempo 65
+@swing 0.55
+@fx vinyl 0.25
+@fx reverb 0.55
 //@fx lowpass 0.2
 
-//      bar1             bar2             bar3             bar4             bar5             bar6             bar7             bar8
-kick:   x . . . . . . . . . x . . . . .
-        x . . . . . . x . . x . . . . .
+@instrument lead pluck 1.2
+@instrument bass contrabass 0.35
+@instrument chord pad 0.1
 
-snare:  . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . . x
-        . . . . x . . . . . . . x . x x
+@sample kick  "kick_soft"
+@sample snare "snare_dirty"
+@sample hat   "hihat_muddy"
+@sample perc  "foley_glass"
 
-hat:    x . x x x . x . x . x x x . x .
+loop: 2
+chords: Cmaj7/2 Am7/2 Fmaj7/2 G7sus4/2
 
-perc:   x x x x 
+// sparse, breathing kick pattern
+//kick:   x . . . . . . . . . . . . . . .
+        . . . . . . . x . . . . . . . .
+        x . . . . . . . . . . . . . . .
+        . . . . . . . . . . x . . . . .
 
-//bass:   Bb2 . . . F2 . . . D3 . . . F2 . . .
-      
-lead:   A4 . . . C5 . D5 . F5 . . . D5 . . .
-        E5 . . . D5 . . . C5 . . . A4 . G4 .
-        F4 . . . A4 . C5 . F5 . . . A5 . . .
-        G5 . F5 . E5 . D5 . C5 . . . A4 . . .
+// minimal snare, adds texture
+//snare:  . . . . . . . . . . . . x . . .
+        . . . . . . . . . . . . . . . x
+        . . . . . . . . . . . . x . . .
+        . . . . . . . . . . . . . . . .
 
-chords: Bbmaj7 C7 Am7 Dm7 Gm7 C7 Fmaj7 Dm7
+// atmospheric hi-hat, gentle and sparse
+hat:    . . x . . . x . . . x . . . . .
+        . . x . . . x . . . x . . x . .
+        . . x . . . x . . . x . . . . .
+        . . x . . . x . . . x . . . x .
+
+// subtle percussion textures
+//perc:   . . . . . . . . . . . . . . . x
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . x
+        . . . . . . . . . . . . . . . .
+
+// warm contrabass, C major root progression
+bass:   C2 . . . . . . . G1 . . . . . . .
+        A1 . . . . . . . E1 . . . . . . .
+        F1 . . . . . . . C2 . . . . . . .
+        G1 . . . . . . . C2 . . . . . . .
+        C2 . . . . . . . G1 . . . . . . .
+        A1 . . . . . . . E1 . . . . . . .
+        F1 . . . . . . . C2 . . . . . . .
+        G1 . . . . . . . C2 . . . . . . .
+
+// meditative pluck melody, C major pentatonic feel
+lead:   . . C5 . . . E5 . . . G5 . . . A5 .
+        . . G5 . . . E5 . C5 . . . . . . .
+        . . F5 . . . A5 . . . C6 . . . E6 .
+        . . D6 . . . C6 . . . A5 . . . . .
+        . . C6 . . . E6 . . . G6 . . . A6 .
+        . . G6 . . . E6 . C6 . . . . . . .
+        . . F6 . . . D6 . . . C6 . . . A5 .
+        . . G5 . . . A5 . C6 . . . . . . .

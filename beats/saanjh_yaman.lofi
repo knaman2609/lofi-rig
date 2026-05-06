@@ -10,19 +10,21 @@
 @tempo 74
 @swing 0.58
 @fx vinyl 0.20
-@fx reverb 0.48
+//@fx reverb 0.5
 @fx lowpass 0.5
+
+//@sample melody cmaj_74bpm_melody_1.wav
 
 @instrument lead harp
 @instrument bass contrabass 0.5
 @instrument chord harmonium 0.2
 
-@kit kick  "kick_soft"
-@kit snare "snare_dirty"
-@kit hat   "hihat_skippy"
-@kit perc  "foley_glass"
+@sample kick  drums/Kicks/kick_soft.wav
+@sample snare drums/Snares/snare_dirty.wav
+@sample hat   drums/Hi Hats/hihat_skippy.wav
+@sample perc  drums/Foley/foley_glass.wav
 
-loop: 2
+
 chords: Cmaj7/3 Em7/3 Am7/3 Dadd9/3
 
 kick:   x . . . . . . . . . x . . . . .

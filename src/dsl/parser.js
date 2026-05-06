@@ -7,7 +7,6 @@ export function parseDSL(text) {
     fx: {},
     instruments: {},
     samples: {},
-    kit: {},
     drums: {},
     bass: null,
     lead: null,
@@ -78,19 +77,13 @@ function parseDirective(line, r) {
   } else if (cmd === 'sample') {
     const name = parts[1];
     const file = parts[2];
-    if (name && file) r.samples[name] = file;
+    const intensity = parts[3] !== undefined ? Math.max(0, Math.min(1, parseFloat(parts[3]))) : 1.0;
+    if (name && file) r.samples[name] = { file, intensity: isNaN(intensity) ? 1.0 : intensity };
   } else if (cmd === 'instrument') {
     const track = parts[1];
     const type = parts[2];
     const intensity = parts[3] !== undefined ? Math.max(0, Math.min(1, parseFloat(parts[3]))) : 1.0;
     if (track && type) r.instruments[track] = { type, intensity: isNaN(intensity) ? 1.0 : intensity };
-  } else if (cmd === 'kit') {
-    const role = parts[1];
-    const name = parts[2];
-    if (role && name) {
-      r.kit = r.kit || {};
-      r.kit[role] = name;
-    }
   }
 }
 
@@ -107,8 +100,9 @@ function appendTrack(name, body, r) {
 }
 
 function writeTrack(name, body, r, loop) {
-  const drumNames = ['kick', 'snare', 'hat', 'hihat', 'perc', 'clap', 'vocal'];
-  if (drumNames.includes(name)) {
+  const drumNames = ['kick', 'snare', 'hat', 'hihat', 'perc', 'clap'];
+  const stemNames = Object.keys(r.samples);
+  if ([...drumNames, ...stemNames].includes(name)) {
     const norm = name === 'hihat' ? 'hat' : name;
     const steps = repeat(parseSteps(body), loop);
     r.drums[norm] = r.drums[norm] ? r.drums[norm].concat(steps) : steps;

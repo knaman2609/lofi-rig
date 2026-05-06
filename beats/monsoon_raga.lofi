@@ -6,39 +6,43 @@
 @swing 0.58
 @fx vinyl 0.3
 @fx reverb 0.5
-@fx lowpass 0.5
-@instrument lead flute
-@instrument bass sub
+//@fx lowpass 0.5
+@instrument lead bell 1.0
+@instrument bass sub 0.3
+@sample kick "drums/Kick Luv"
+@sample snare "Snare Deluxe"
+@sample hat "HiHat Classic"
+@sample perc "Foley Click"
 
 //      bar1             bar2             bar3             bar4
-kick:   x . . . . . . . . . x . . . . .
-        x . . . . . . x . . x . . . . .
-        x . . . . . . . . . x . . . x .
-        x . . . . . . x . . x . . . . .
+kick:   x . . . . . . . . . . . x . . .
+        x . . . . . . . . . . . x . . .
+        x . . . . . . . . . . . x . . .
+        x . . . . . . . . . . . x . . .
 
-snare:  . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . . x
-        . . . . x . . . . . . . x . . .
-        . . . . x . . . . . . . x . x .
+snare:  . . . . x . . . . . . . . . . .
+        . . . . x . . . . . . . . . . .
+        . . . . x . . . . . . . . . . .
+        . . . . x . . . . . . . . . . .
 
-perc:   x . x . x x . x x . x . x x x .
-        x . x . x x . x x . x x x . x .
-        x x x . x . x x x . x . x x x .
-        x . x x x . x x x x x . x x x x
+perc:   . . . . . . . . x . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . x . . . . . . .
+        . . . . . . . . . . . . . . . .
 
-hat:    . . x . . . x . . . x . . . x .
-        . . x . . . x . . . x . . . x .
-        . . x . . . x . . . x . . . x .
-        . . x . . . x . . . x x . . x x
+hat:    x . . . x . . . x . . . x . . .
+        x . . . x . . . x . . . x . . .
+        x . . . x . . . x . . . x . . .
+        x . . . x . . . x . . . x . . .
 
 bass:   D2 . . . . . . . A2 . . . D2 . . .
         G2 . . . . . . . D3 . . . G2 . . .
         F2 . . . . . . . C3 . . . F2 . . .
         A2 . . . . . . . E3 . . . A2 . . .
 
-lead:   . . . D5 . . . F5 . E5 . D5 . . . .
-        . . . G4 . . . B4 . A4 . G4 . . . .
-        . . . A4 . . . C5 . . . D5 . . . .
-        . . . E5 . D5 . C5 . . . A4 . . . .
+lead:   . . D5 . . . F5 . E5 . . . D5 . . .
+        . . G4 . . . B4 . A4 . . . G4 . . .
+        . . A4 . . . C5 . D5 . . . A4 . . .
+        . . E5 . D5 . . . C5 . . . A4 . . .
 
 chords: Dm9 G7 Fmaj7 Am7

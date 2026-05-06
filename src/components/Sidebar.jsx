@@ -1,4 +1,5 @@
 import { trackCount } from '../dsl/parser.js';
+import { CassettePlayer } from './CassettePlayer.jsx';
 
 function FileInfo({ file }) {
   if (!file) {
@@ -42,9 +43,12 @@ function DslHelp() {
   );
 }
 
-export function Sidebar({ file, pattern }) {
+export function Sidebar({ file, pattern, isPlaying, bpm }) {
   return (
     <aside className="sidebar">
+      <div className="sidebar-section">
+        <CassettePlayer isPlaying={isPlaying} bpm={bpm} />
+      </div>
       <div className="sidebar-section">
         <h3>file</h3>
         <FileInfo file={file} />

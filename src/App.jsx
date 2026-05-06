@@ -79,8 +79,9 @@ export default function App() {
         const file = await handle.getFile();
         const content = await file.text();
         const tempoMatch = content.match(/@tempo\s+(\d+)/);
+        const tempo = tempoMatch ? parseInt(tempoMatch[1], 10) : 80;
         const tags = tempoMatch ? [`${tempoMatch[1]} bpm`] : [];
-        loaded.push({ id, name: displayName, file: name, fileHandle: handle, tags });
+        loaded.push({ id, name: displayName, file: name, fileHandle: handle, tags, tempo });
       }
       loaded.sort((a, b) => a.name.localeCompare(b.name));
       setTracks(loaded);
@@ -294,7 +295,7 @@ export default function App() {
               preRef={preRef}
               textareaRef={textareaRef}
             />
-            <Sidebar file={fileInfo} pattern={pattern} />
+            <Sidebar file={fileInfo} pattern={pattern} isPlaying={isPlaying} bpm={pattern.tempo} />
           </>
         )}
       </main>

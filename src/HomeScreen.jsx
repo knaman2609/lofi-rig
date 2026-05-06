@@ -1,33 +1,11 @@
-import { TrackArtwork } from './TrackArtwork.jsx';
-
-function TrackCard({ track, isPlaying, onPlay, onStop, onOpen }) {
-  const handleArtClick = () => isPlaying ? onStop() : onPlay(track);
-
-  return (
-    <div className={`track-card${isPlaying ? ' is-playing' : ''}`}>
-      <div className="track-art-wrap" onClick={handleArtClick}>
-        <TrackArtwork id={track.id} />
-        <div className="play-overlay">
-          <div className="play-btn-circle">
-            {isPlaying ? '■' : '▶'}
-          </div>
-        </div>
-      </div>
-      <div className="track-info">
-        <div className="track-name-row">
-          <span className="track-name">{track.name}</span>
-          {isPlaying && <span className="now-playing-dot" />}
-        </div>
-        <div className="track-meta">
-          <span className="track-tags">{track.tags.join(' · ')}</span>
-          <button className="edit-btn" onClick={() => onOpen(track)}>open</button>
-        </div>
-      </div>
-    </div>
-  );
-}
+import { useState } from 'react';
+import { CassettePlayer } from './components/CassettePlayer.jsx';
 
 export function HomeScreen({ tracks, onPickFolder, onSelect, onPlay, onStop, playingId, isPlaying }) {
+  const [selectedTrackId, setSelectedTrackId] = useState(null);
+  const currentTrack = selectedTrackId ? tracks.find(t => t.id === selectedTrackId) : tracks.find(t => t.id === playingId);
+  const displayTrackId = selectedTrackId || playingId;
+
   if (tracks.length === 0) {
     return (
       <div className="home-screen">
@@ -43,23 +21,56 @@ export function HomeScreen({ tracks, onPickFolder, onSelect, onPlay, onStop, pla
   }
 
   return (
-    <div className="home-screen">
+    <div className="home-screen home-player">
       <div className="home-header">
         <span className="home-title">lofi.player</span>
-        <span className="home-sub">{tracks.length} tracks — hover &amp; play</span>
       </div>
-      <div className="tracks-grid">
-        {tracks.map(track => (
-          <TrackCard
-            key={track.id}
-            track={track}
-            isPlaying={playingId === track.id && isPlaying}
-            onPlay={onPlay}
-            onStop={onStop}
-            onOpen={onSelect}
-          />
-        ))}
-    </div>
+
+      <div className="cassette-display">
+        <CassettePlayer isPlaying={isPlaying} bpm={currentTrack?.tempo || 80} />
+      </div>
+
+      <div className="track-selector">
+        <select
+          className="track-dropdown"
+          value={displayTrackId || ''}
+          onChange={(e) => {
+            setSelectedTrackId(e.target.value);
+          }}
+        >
+          <option value="">— select a track —</option>
+          {tracks.map(track => (
+            <option key={track.id} value={track.id}>
+              {track.name} {track.tags.length > 0 ? `· ${track.tags.join(' ')}` : ''}
+            </option>
+          ))}
+        </select>
+
+        <div className="player-controls">
+          <button
+            className="control-btn play-btn"
+            onClick={() => currentTrack && onPlay(currentTrack)}
+            disabled={!currentTrack || isPlaying}
+          >
+            ▶
+          </button>
+          <button
+            className="control-btn stop-btn"
+            onClick={onStop}
+            disabled={!isPlaying}
+          >
+            ■
+          </button>
+        </div>
+      </div>
+
+      <button
+        className="pick-folder-alt-btn"
+        onClick={() => currentTrack && onSelect(currentTrack)}
+        disabled={!currentTrack}
+      >
+        edit
+      </button>
     </div>
   );
 }

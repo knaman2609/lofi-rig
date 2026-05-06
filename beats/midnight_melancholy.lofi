@@ -1,0 +1,51 @@
+@tempo 74
+@swing 0.68
+@fx vinyl 0.45
+@fx reverb 0.5
+@fx lowpass 0.55
+@instrument lead bell 0.7
+@instrument bass cello 0.85
+@instrument chord pad 0.7
+
+@sample chords dmin_74bpm_chords_1.wav
+@sample melody dmin_74bpm_melody_1.wav
+
+@sample kick "Kick Heavy n Muddy"
+@sample snare "Snare Dirty"
+@sample hat "HiHat Muddy"
+@sample perc "Foley Thump"
+
+kick:  x . . . . . . . . . x . . . . .
+       x . . x . . . . x . . . . x . .
+       x . . . . . . . . . x . . . . .
+       x . . x . . . . x . . . . . . .
+
+snare: . . . . x . . . . . . . x . . .
+       . . . . x . . x . . . . x . . .
+       . . . . x . . . . . . . x . . .
+       . . . . x . . x . . x . x . . .
+
+hat:   x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+
+perc:  . . x . . . . . . . . . . . . .
+       . . . . . . . x . . . . . . . .
+       . . x . . . . . . . . . . . . .
+       . . . . . . . x . . . x . . . .
+
+chords: x . . . . . . . . . . . . . . .
+       
+melody: x . . . . . . . . . . . . . . .
+       
+
+bass:   D2 . . . . . . . A1 . . . D2 . . .
+        D2 . . . . . . . F2 . . . D2 . . .
+        D2 . . . . . . . A1 . . . D2 . . .
+        D2 . . . . . . . F2 . . . D2 . . .
+
+lead:   . . D4 . . . . . . . F4 . . . . .
+        . . . . . . E4 . . . . . D4 . . .
+        . . D4 . . . . . . . F4 . . . . .
+        . . . . . . E4 . . . . . D4 . . .

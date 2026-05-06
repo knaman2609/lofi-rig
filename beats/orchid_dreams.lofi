@@ -1,0 +1,37 @@
+@tempo 76
+@swing 0.65
+@fx vinyl 0.3
+@fx reverb 0.3
+@fx lowpass 0.65
+@sample kick drums/Kicks/kick_soft.wav
+@sample snare drums/Snares/snare_dirty.wav
+@sample hat "drums/Hi Hats/hihat_muddy.wav"
+@sample perc drums/Foley/foley_glass.wav 0.1
+@sample melody loops/emin_76bpm_melody_1.wav 0.5
+
+kick:   x . . . . . . . . . x . . . x .
+snare:  . . . . x . . . . . . . . . . .
+hat:    x . x . x . x . x . x . x . x .
+clap:   . . . . . . . . x . . . . . . .
+perc:   . . x . . . . . . . . . x . . .
+
+chords: Em Am G Em
+        Em Am G B
+        Em Am Em B
+        Em Am G Em
+
+melody: x . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+        . . . . . . . . . . . . . . . .
+
+        
+bass:   E1 . . . . . E1 . B1 . . . E1 . . .
+        E1 . . . . . E1 . B1 . . . E1 . . .
+        E1 . . . . . E1 . A1 . . . E1 . . .
+        E1 . . . . . E1 . B1 . . . E1 . . .
+
+lead:   . . E3 . G3 . . . B3 . A3 . . . . .
+        . . F#3 . A3 . . . B3 . G3 . . . . .
+        . . E3 . G3 . . . B3 . A3 . . . . .
+        . . F#3 . A3 . . . B3 . G3 . . . . .

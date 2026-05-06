@@ -1,0 +1,32 @@
+@tempo 74
+@swing 0.65
+@fx vinyl 0.3
+@fx reverb 0.4
+@fx lowpass 0.8
+@instrument lead pluck 0.9
+@instrument bass cello 0.2
+@instrument chord guitar 0.7
+@sample kick "Kick Duty Vinyl"
+@sample snare "Snare Classic Record"
+@sample hat "HiHat Dusty"
+@sample perc "Foley Click"
+
+kick:  x . . . . . . . . . x . . . x .
+       x . . . . x . . x . . . . x . .
+
+snare: . . . . x . . . . . . . x . . .
+       . . . . x . . . . . . x . . . .
+
+hat:   x . x . x . x . x . x . x . x .
+       x . x . x . x . x . x . x . x .
+
+perc:  . . x . . . . x . . x . . . x .
+       . . . x . . . . . x . . x . . .
+
+bass:  C2 . D2 . C2 . F2 . G2 . A2 . G2 .
+       C2 . . . D2 . . . F2 . G2 . C2 . .
+
+lead:  . . C4 . . . . . . . . . A4 . . .
+       . . . . . . D4 . . . . . . F4 . .
+
+chords: Csus2 Dsus2  Fsus2 Gsus2
