@@ -1,5 +1,6 @@
 import { normalizeNote } from './notes.js';
 
+// Main entry point: parses DSL text and returns structured beat data (tempo, instruments, drums, melodic tracks, etc)
 export function parseDSL(text) {
   const result = {
     tempo: 80,
@@ -53,6 +54,7 @@ export function parseDSL(text) {
   return result;
 }
 
+// Splits directive strings into tokens, respecting quoted strings
 function tokenizeDirective(s) {
   const tokens = [];
   const re = /"([^"]*)"|(\S+)/g;
@@ -61,6 +63,7 @@ function tokenizeDirective(s) {
   return tokens;
 }
 
+// Parses @directives: tempo, swing, fx, sample, instrument
 function parseDirective(line, r) {
   const parts = tokenizeDirective(line.slice(1));
   const cmd = parts[0];
@@ -87,6 +90,7 @@ function parseDirective(line, r) {
   }
 }
 
+// Parses a track declaration (e.g., "kick: x . . . . . . .")
 function parseTrack(line, r, loop = 1) {
   const idx = line.indexOf(':');
   const name = line.slice(0, idx).trim().toLowerCase();
@@ -95,10 +99,12 @@ function parseTrack(line, r, loop = 1) {
   writeTrack(name, body, r, loop);
 }
 
+// Appends an indented continuation line to the previous track (single repetition)
 function appendTrack(name, body, r) {
   writeTrack(name, body, r, 1);
 }
 
+// Routes tracks to the correct parser: drums, bass/lead, or chords
 function writeTrack(name, body, r, loop) {
   const drumNames = ['kick', 'snare', 'hat', 'hihat', 'perc', 'clap'];
   const stemNames = Object.keys(r.samples);
@@ -115,6 +121,7 @@ function writeTrack(name, body, r, loop) {
   }
 }
 
+// Repeats array contents n times (used for loop: N modifier)
 function repeat(arr, n) {
   if (n <= 1) return arr;
   const out = [];
@@ -122,6 +129,7 @@ function repeat(arr, n) {
   return out;
 }
 
+// Parses drum patterns: x/X = hit, ./–/_ = rest, pads to 16-step grid
 function parseSteps(body) {
   const cleaned = body.replace(/\s+/g, '');
   const steps = [];
@@ -133,6 +141,7 @@ function parseSteps(body) {
   return steps;
 }
 
+// Parses melodic notes: A-G with optional # or b, padded to 16-step grid, null = rest
 function parseNotes(body) {
   const tokens = body.replace(/[\[\]]/g, ' ').trim().split(/\s+/);
   const notes = [];
@@ -147,15 +156,18 @@ function parseNotes(body) {
   return notes;
 }
 
+// Parses chord symbols (e.g., Am7, Dm7) from track body
 function parseChords(body) {
   const tokens = body.replace(/[<>]/g, ' ').trim().split(/\s+/);
   return tokens.filter(t => t.length > 0);
 }
 
+// Counts total number of active tracks (drums + melodic instruments)
 export function trackCount(p) {
   return Object.keys(p.drums).length + (p.bass ? 1 : 0) + (p.lead ? 1 : 0) + (p.chords ? 1 : 0);
 }
 
+// Checks if parsed beat has at least one playable track
 export function isPlayable(p) {
   return Object.keys(p.drums).length + (p.bass ? 1 : 0) + (p.lead ? 1 : 0) + (p.chords ? 1 : 0) > 0;
 }

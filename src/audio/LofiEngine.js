@@ -346,11 +346,11 @@ this.loaded = Promise.resolve();
     this.activeBass  = resolve('bass',  instruments.bass);
     console.log('[selectInstruments] activeBass set:', !!this.activeBass, this.activeBass?.constructor?.name);
 
-    this.activeChord = resolve('chord', instruments.chord);
+    this.activeChord = resolve('chord', instruments.chords || instruments.chord);
     console.log('[selectInstruments] activeChord set:', !!this.activeChord, this.activeChord?.constructor?.name);
 
     const chordDurs = { stab: '8n', guitar: '4n', pad: '1n', acoustic: '4n', electric: '4n', organ: '1n', harmonium: '1n', strings: '1n' };
-    this.activeChordDur = chordDurs[instruments.chord?.type] || '1n';
+    this.activeChordDur = chordDurs[(instruments.chords || instruments.chord)?.type] || '1n';
   }
 
   loadStem(name, filename, intensity = 1.0) {

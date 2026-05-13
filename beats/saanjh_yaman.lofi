@@ -17,10 +17,10 @@
 
 @instrument lead harp
 @instrument bass contrabass 0.5
-@instrument chord harmonium 0.2
+@instrument chord harmonium 0.6
 
 @sample kick  drums/Kicks/kick_soft.wav
-@sample snare drums/Snares/snare_dirty.wav
+@sample snare drums/Snares/snare_dirty.wav 0.5
 @sample hat   drums/Hi Hats/hihat_skippy.wav
 @sample perc  drums/Foley/foley_glass.wav
 

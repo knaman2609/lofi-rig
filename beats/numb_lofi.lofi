@@ -3,10 +3,6 @@
 @fx vinyl 0.30
 @fx reverb 0.45
 //@fx lowpass 0.48
-@instrument lead marimba 0.5
-@instrument chord pad 0.4
-@instrument bass slap 0.2
-
 // Linkin Park - Numb (lofi cover)
 // Key: Ab minor | Progression: Abm - Eb - E - Db 
 
@@ -44,4 +40,4 @@ lead:   Ab4 . Gb4 . E4 . Eb4 .
         Db4 . . . Ab3 . . .
 
 chords: Abm Eb E Db
-        Abm Eb E Db
+        
